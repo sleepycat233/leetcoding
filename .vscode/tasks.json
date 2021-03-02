@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "cmake",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceRoot}/build"
+            },
+            "command": "cmake",
+            "args": [
+                "${workspaceRoot}",
+                "-G",
+                "\"Unix Makefiles\""
+            ],
+
+            "group": {
+                "kind": "build",
+                "isDefault": true,
+            },
+            "problemMatcher": [
+                {
+                    "base": "$gcc",
+                    "fileLocation": ["relative", "${workspaceRoot}/build"]
+                },
+            ],
+            "promptOnClose": true
+        }
+    ]
+}

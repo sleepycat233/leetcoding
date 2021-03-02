@@ -18,28 +18,47 @@ private:
     Node *pNext;
 
 public:
-    char data;
+    int data;
     Node();
-    Node(char dat, Node *pN = nullptr);
+    Node(int dat, Node *pN = nullptr);
+
+    Node* NextNode();
+    void InsertAfter(int *pN, int dat);
 };
 
 Node::Node()
 {
-    data = 'X';
+    data = 404;
 }
 
-Node::Node(char dat, Node *pN)
+Node::Node(int dat, Node *pN)
 {
     this->data = dat;
     this->pNext = pN;
+}  
+
+Node* Node::NextNode()
+{
+    return this->pNext;
 }
 
+void Node::InsertAfter(int *pN, int dat)
+{
+    ;
+}
 
 int main()
 {
-    Node n1;
-    Node nA('A');
-    Node *p;
+    Node *pE = new Node(14);
+    Node *pD = new Node(13, pE);
+    Node *pC = new Node(12, pD);
+    // Node nC = *pC;
+    Node nB(11, pC);
+    Node *pB = &nB;
+    Node nA(10, pB);
+    Node *pA = &nA;
 
-    cout << "nA " << nA.data << " n1 " << n1.data << endl; 
+    cout << "nA: " << nA.data << " nA NextNode data: " << pA->NextNode()->data << endl; 
+    cout << "nC: " << pC->data << " nC NextNode data: " << pC->NextNode()->data << endl;
+    cout << "nE: " << pE->data << " nE NextNode data: " << pE->NextNode()->data << endl;
 }
