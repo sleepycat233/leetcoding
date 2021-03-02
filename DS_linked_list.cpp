@@ -60,5 +60,5 @@ int main()
 
     cout << "nA: " << nA.data << " nA NextNode data: " << pA->NextNode()->data << endl; 
     cout << "nC: " << pC->data << " nC NextNode data: " << pC->NextNode()->data << endl;
-    cout << "nE: " << pE->data << " nE NextNode data: " << pE->NextNode()->data << endl;
+    // cout << "nE: " << pE->data << " nE NextNode data: " << pE->NextNode()->data << endl;
 }

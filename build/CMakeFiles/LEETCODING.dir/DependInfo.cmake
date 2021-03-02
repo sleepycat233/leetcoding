@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/Programming/code/Github/leetcoding/DS_linked_list.cpp" "D:/Programming/code/Github/leetcoding/build/CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.obj"
+  "/home/usr1/projects/leetcoding/DS_linked_list.cpp" "/home/usr1/projects/leetcoding/build/CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

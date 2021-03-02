@@ -1,5 +1,3 @@
-D:/Programming/code/Github/leetcoding/build/CMakeFiles/rebuild_cache.dir
-D:/Programming/code/Github/leetcoding/build/CMakeFiles/LEETCODING.dir
-D:/Programming/code/Github/leetcoding/build/CMakeFiles/package.dir
-D:/Programming/code/Github/leetcoding/build/CMakeFiles/package_source.dir
-D:/Programming/code/Github/leetcoding/build/CMakeFiles/edit_cache.dir
+/home/usr1/projects/leetcoding/build/CMakeFiles/rebuild_cache.dir
+/home/usr1/projects/leetcoding/build/CMakeFiles/edit_cache.dir
+/home/usr1/projects/leetcoding/build/CMakeFiles/LEETCODING.dir
