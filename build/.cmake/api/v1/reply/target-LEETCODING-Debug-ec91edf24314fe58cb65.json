@@ -42,7 +42,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -fno-omit-frame-pointer -fsanitize=address  "
+					"fragment" : "-g  "
 				},
 				{
 					"backtrace" : 2,
@@ -62,7 +62,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g -fno-omit-frame-pointer -fsanitize=address",
+				"fragment" : "-g",
 				"role" : "flags"
 			},
 			{
@@ -94,7 +94,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "DS_linked_list.cpp",
+			"path" : "DS_binary_tree.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -49,16 +49,16 @@ void Node::InsertAfter(int *pN, int dat)
 
 int main()
 {
-    Node *pE = new Node(14);
+    Node *pE = new Node(14);    // 
     Node *pD = new Node(13, pE);
     Node *pC = new Node(12, pD);
-    // Node nC = *pC;
+    // Node nC = *pC;   
     Node nB(11, pC);
     Node *pB = &nB;
     Node nA(10, pB);
-    Node *pA = &nA;
+    Node *pA = &nA; 
 
     cout << "nA: " << nA.data << " nA NextNode data: " << pA->NextNode()->data << endl; 
     cout << "nC: " << pC->data << " nC NextNode data: " << pC->NextNode()->data << endl;
-    // cout << "nE: " << pE->data << " nE NextNode data: " << pE->NextNode()->data << endl;
+    cout << "nE: " << pE->data << " nE NextNode data: " << pE->NextNode()->data << endl;
 }

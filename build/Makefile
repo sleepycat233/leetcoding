@@ -123,32 +123,32 @@ LEETCODING/fast:
 	$(MAKE) -f CMakeFiles/LEETCODING.dir/build.make CMakeFiles/LEETCODING.dir/build
 .PHONY : LEETCODING/fast
 
-DS_linked_list.o: DS_linked_list.cpp.o
+DS_binary_tree.o: DS_binary_tree.cpp.o
 
-.PHONY : DS_linked_list.o
+.PHONY : DS_binary_tree.o
 
 # target to build an object file
-DS_linked_list.cpp.o:
-	$(MAKE) -f CMakeFiles/LEETCODING.dir/build.make CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.o
-.PHONY : DS_linked_list.cpp.o
+DS_binary_tree.cpp.o:
+	$(MAKE) -f CMakeFiles/LEETCODING.dir/build.make CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.o
+.PHONY : DS_binary_tree.cpp.o
 
-DS_linked_list.i: DS_linked_list.cpp.i
+DS_binary_tree.i: DS_binary_tree.cpp.i
 
-.PHONY : DS_linked_list.i
+.PHONY : DS_binary_tree.i
 
 # target to preprocess a source file
-DS_linked_list.cpp.i:
-	$(MAKE) -f CMakeFiles/LEETCODING.dir/build.make CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.i
-.PHONY : DS_linked_list.cpp.i
+DS_binary_tree.cpp.i:
+	$(MAKE) -f CMakeFiles/LEETCODING.dir/build.make CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.i
+.PHONY : DS_binary_tree.cpp.i
 
-DS_linked_list.s: DS_linked_list.cpp.s
+DS_binary_tree.s: DS_binary_tree.cpp.s
 
-.PHONY : DS_linked_list.s
+.PHONY : DS_binary_tree.s
 
 # target to generate assembly for a file
-DS_linked_list.cpp.s:
-	$(MAKE) -f CMakeFiles/LEETCODING.dir/build.make CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.s
-.PHONY : DS_linked_list.cpp.s
+DS_binary_tree.cpp.s:
+	$(MAKE) -f CMakeFiles/LEETCODING.dir/build.make CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.s
+.PHONY : DS_binary_tree.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... LEETCODING"
-	@echo "... DS_linked_list.o"
-	@echo "... DS_linked_list.i"
-	@echo "... DS_linked_list.s"
+	@echo "... DS_binary_tree.o"
+	@echo "... DS_binary_tree.i"
+	@echo "... DS_binary_tree.s"
 .PHONY : help
 
 

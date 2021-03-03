@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.o"
+  "CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.o"
   "LEETCODING"
   "LEETCODING.pdb"
 )

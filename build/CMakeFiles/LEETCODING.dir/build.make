@@ -57,27 +57,27 @@ include CMakeFiles/LEETCODING.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/LEETCODING.dir/flags.make
 
-CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.o: CMakeFiles/LEETCODING.dir/flags.make
-CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.o: ../DS_linked_list.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usr1/projects/leetcoding/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.o"
-	/bin/g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.o -c /home/usr1/projects/leetcoding/DS_linked_list.cpp
+CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.o: CMakeFiles/LEETCODING.dir/flags.make
+CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.o: ../DS_binary_tree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usr1/projects/leetcoding/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.o"
+	/bin/g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.o -c /home/usr1/projects/leetcoding/DS_binary_tree.cpp
 
-CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.i"
-	/bin/g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/usr1/projects/leetcoding/DS_linked_list.cpp > CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.i
+CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.i"
+	/bin/g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/usr1/projects/leetcoding/DS_binary_tree.cpp > CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.i
 
-CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.s"
-	/bin/g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/usr1/projects/leetcoding/DS_linked_list.cpp -o CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.s
+CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.s"
+	/bin/g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/usr1/projects/leetcoding/DS_binary_tree.cpp -o CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.s
 
 # Object files for target LEETCODING
 LEETCODING_OBJECTS = \
-"CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.o"
+"CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.o"
 
 # External object files for target LEETCODING
 LEETCODING_EXTERNAL_OBJECTS =
 
-LEETCODING: CMakeFiles/LEETCODING.dir/DS_linked_list.cpp.o
+LEETCODING: CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.o
 LEETCODING: CMakeFiles/LEETCODING.dir/build.make
 LEETCODING: CMakeFiles/LEETCODING.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/usr1/projects/leetcoding/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable LEETCODING"
