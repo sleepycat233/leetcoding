@@ -25,6 +25,7 @@ class btree
         Node *search(int key);
 
         void printTree();
+        void printTreeGraph(); // 
         void destroyTree();
 
     private:
@@ -98,8 +99,11 @@ Node *btree::search(int key, Node *leaf)
 
 void btree::printTree()
 {
+    // cout << root->data;
     printTree(root);
 }
+
+int cleft = 0, cright = 0;
 
 void btree::printTree(Node *leaf)
 {
@@ -107,12 +111,24 @@ void btree::printTree(Node *leaf)
 
     if(leaf->left != nullptr)
     {
+        cout << "print left";
+        cleft += 1;
         printTree(leaf->left);
+    }
+    else
+    {
+        cout << "left empty" << cleft << "\n";
     }
 
     if(leaf->right != nullptr)
     {
+        cout << "print right";
+        cright += 1;
         printTree(leaf->right);
+    }
+    else
+    {
+        cout << "right empty " << cright << "\n";
     }
 }
 
@@ -120,10 +136,15 @@ int main()
 {
     btree mytree;
 
-    mytree.insert(1);
-    mytree.insert(2);
-    mytree.insert(3);
-    mytree.insert(4);
+    mytree.insert(10);
+    mytree.insert(6);
+    mytree.insert(14);
+    mytree.insert(5);
+    mytree.insert(8);
+    mytree.insert(11);
+    mytree.insert(18);
+
+    // cout << "root data:" << mytree.root->data << " root left data: " << mytree.root->left->data << " root right data: " << mytree.root->right->data;
 
     mytree.printTree();
 }
