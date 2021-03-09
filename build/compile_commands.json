@@ -1,7 +1,7 @@
 [
 {
   "directory": "/home/usr1/projects/leetcoding/build",
-  "command": "/bin/g++-9    -g   -Wall -o CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.o -c /home/usr1/projects/leetcoding/DS_binary_tree.cpp",
+  "command": "/bin/g++-9    -g -fno-omit-frame-pointer -fsanitize=address   -Wall -o CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.o -c /home/usr1/projects/leetcoding/DS_binary_tree.cpp",
   "file": "/home/usr1/projects/leetcoding/DS_binary_tree.cpp"
 }
 ]

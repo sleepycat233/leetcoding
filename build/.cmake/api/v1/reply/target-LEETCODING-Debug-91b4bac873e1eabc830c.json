@@ -42,7 +42,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g  "
+					"fragment" : "-g -fno-omit-frame-pointer -fsanitize=address  "
 				},
 				{
 					"backtrace" : 2,
@@ -62,7 +62,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g",
+				"fragment" : "-g -fno-omit-frame-pointer -fsanitize=address",
 				"role" : "flags"
 			},
 			{

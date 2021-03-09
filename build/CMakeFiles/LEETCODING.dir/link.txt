@@ -1,1 +1,1 @@
-/bin/g++-9  -g  -rdynamic CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.o  -o LEETCODING 
+/bin/g++-9  -g -fno-omit-frame-pointer -fsanitize=address  -rdynamic CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.o  -o LEETCODING 

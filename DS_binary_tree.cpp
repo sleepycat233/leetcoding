@@ -5,34 +5,37 @@
 //  destroy tree
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 struct Node
 {
     int data;
-    Node *left;
-    Node *right;
+    Node* left;
+    Node* right;
 };
 
 class btree
 {
-    public:
-        btree();
-        ~btree();
-        
-        Node *root;
-        void insert(int key);
-        Node *search(int key);
+public:
+    btree();
+    ~btree();
 
-        void printTree();
-        void printTreeGraph(); // 
-        void destroyTree();
+    Node* root;
+    void insert(int key);
+    Node* search(int key);
 
-    private:
-        void insert(int key, Node *leaf);        
-        Node *search(int key, Node *leaf);
-        void destroyTree(Node *leaf);
-        void printTree(Node *leaf);
+    void printTreePreOrder();
+    void printTreeInOrder();
+    void printTreeGraph(); // 
+    void destroyTree();
+
+private:
+    void insert(int key, Node* leaf);
+    Node* search(int key, Node* leaf);
+    void destroyTree(Node* leaf);
+    void printTreePreOrder(Node* leaf);
+    void printTreeInOrder(Node* leaf);
 };
 
 btree::btree()
@@ -42,7 +45,12 @@ btree::btree()
 
 btree::~btree()
 {
-    // destroyTree();
+    destroyTree(root);
+}
+
+void btree::destroyTree(Node* leaf)
+{
+    
 }
 
 void btree::insert(int key)
@@ -60,7 +68,7 @@ void btree::insert(int key)
     }
 }
 
-void btree::insert(int key, Node *leaf)
+void btree::insert(int key, Node* leaf)
 {
     if(key < leaf->data)
     {
@@ -88,48 +96,80 @@ void btree::insert(int key, Node *leaf)
             leaf->right->data = key;
             leaf->right->left = nullptr;
             leaf->right->right = nullptr;
-        }        
+        }
     }
 }
 
-Node *btree::search(int key, Node *leaf)
+Node* btree::search(int key, Node* leaf)
 {
 
 }
 
-void btree::printTree()
+void btree::printTreePreOrder()
 {
     // cout << root->data;
-    printTree(root);
+    printTreePreOrder(root);
 }
 
 int cleft = 0, cright = 0;
 
-void btree::printTree(Node *leaf)
+void btree::printTreePreOrder(Node* leaf)
 {
-    cout << leaf->data;
+    cout << leaf->data << " ";
 
     if(leaf->left != nullptr)
     {
-        cout << "print left";
+        // cout << "print left";
         cleft += 1;
-        printTree(leaf->left);
+        printTreePreOrder(leaf->left);
     }
     else
     {
-        cout << "left empty" << cleft << "\n";
+        // cout << "left empty" << cleft << "\n";
     }
 
     if(leaf->right != nullptr)
     {
-        cout << "print right";
+        // cout << "print right";
         cright += 1;
-        printTree(leaf->right);
+        printTreePreOrder(leaf->right);
     }
     else
     {
-        cout << "right empty " << cright << "\n";
+        // cout << "right empty " << cright << "\n";
     }
+}
+
+/* 
+     10
+   /    \
+  6      14
+ / \    /  \
+5   8  11  18
+ */
+
+int treeHight = 0;
+
+void btree::printTreeInOrder()
+{
+    printTreeInOrder(root);
+}
+
+void btree::printTreeInOrder(Node* leaf)
+{
+    treeHight++;
+    if(leaf == nullptr)
+    {
+        treeHight--;
+        return;
+    }
+
+    printTreeInOrder(leaf->left);
+    cout << setw(30 - (5 * treeHight)) << leaf->data << endl;// << "hight: " << treeHight << endl;
+    // cout << setw(30 - (5 * treeHight)) << leaf->data << "hight: " << treeHight << endl;
+    printTreeInOrder(leaf->right);
+
+    treeHight--;
 }
 
 int main()
@@ -139,12 +179,25 @@ int main()
     mytree.insert(10);
     mytree.insert(6);
     mytree.insert(14);
-    mytree.insert(5);
+    mytree.insert(4);
     mytree.insert(8);
     mytree.insert(11);
     mytree.insert(18);
 
+    mytree.insert(13);
+    mytree.insert(9);
+    mytree.insert(10);
+    mytree.insert(2);
+    mytree.insert(7);
+    mytree.insert(5);
+    // mytree.insert(7);
+    mytree.insert(15);
+    mytree.insert(15);
+    mytree.insert(18);
+
     // cout << "root data:" << mytree.root->data << " root left data: " << mytree.root->left->data << " root right data: " << mytree.root->right->data;
 
-    mytree.printTree();
+    mytree.printTreePreOrder();
+    cout << "\n";
+    mytree.printTreeInOrder();
 }
