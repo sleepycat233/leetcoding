@@ -50,7 +50,12 @@ btree::~btree()
 
 void btree::destroyTree(Node* leaf)
 {
-    
+    if(leaf != nullptr)
+    {
+        destroyTree(leaf->left);
+        destroyTree(leaf->right);
+        delete leaf;
+    }
 }
 
 void btree::insert(int key)
@@ -165,7 +170,7 @@ void btree::printTreeInOrder(Node* leaf)
     }
 
     printTreeInOrder(leaf->left);
-    cout << setw(30 - (5 * treeHight)) << leaf->data << endl;// << "hight: " << treeHight << endl;
+    cout << setw(30 - (5 * treeHight)) << leaf->data << endl;
     // cout << setw(30 - (5 * treeHight)) << leaf->data << "hight: " << treeHight << endl;
     printTreeInOrder(leaf->right);
 

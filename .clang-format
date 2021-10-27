@@ -1,0 +1,10 @@
+ColumnLimit: 150
+
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+BreakBeforeBraces: Stroustrup
+#AllowShortIfStatementsOnASingleLine: false
+IndentCaseLabels: false
+#AllowShortBlocksOnASingleLine: Never
+#AllowShortFunctionsOnASingleLine: None

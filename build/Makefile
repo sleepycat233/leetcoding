@@ -123,32 +123,32 @@ LEETCODING/fast:
 	$(MAKE) -f CMakeFiles/LEETCODING.dir/build.make CMakeFiles/LEETCODING.dir/build
 .PHONY : LEETCODING/fast
 
-DS_binary_tree.o: DS_binary_tree.cpp.o
+1_two_sum.o: 1_two_sum.cpp.o
 
-.PHONY : DS_binary_tree.o
+.PHONY : 1_two_sum.o
 
 # target to build an object file
-DS_binary_tree.cpp.o:
-	$(MAKE) -f CMakeFiles/LEETCODING.dir/build.make CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.o
-.PHONY : DS_binary_tree.cpp.o
+1_two_sum.cpp.o:
+	$(MAKE) -f CMakeFiles/LEETCODING.dir/build.make CMakeFiles/LEETCODING.dir/1_two_sum.cpp.o
+.PHONY : 1_two_sum.cpp.o
 
-DS_binary_tree.i: DS_binary_tree.cpp.i
+1_two_sum.i: 1_two_sum.cpp.i
 
-.PHONY : DS_binary_tree.i
+.PHONY : 1_two_sum.i
 
 # target to preprocess a source file
-DS_binary_tree.cpp.i:
-	$(MAKE) -f CMakeFiles/LEETCODING.dir/build.make CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.i
-.PHONY : DS_binary_tree.cpp.i
+1_two_sum.cpp.i:
+	$(MAKE) -f CMakeFiles/LEETCODING.dir/build.make CMakeFiles/LEETCODING.dir/1_two_sum.cpp.i
+.PHONY : 1_two_sum.cpp.i
 
-DS_binary_tree.s: DS_binary_tree.cpp.s
+1_two_sum.s: 1_two_sum.cpp.s
 
-.PHONY : DS_binary_tree.s
+.PHONY : 1_two_sum.s
 
 # target to generate assembly for a file
-DS_binary_tree.cpp.s:
-	$(MAKE) -f CMakeFiles/LEETCODING.dir/build.make CMakeFiles/LEETCODING.dir/DS_binary_tree.cpp.s
-.PHONY : DS_binary_tree.cpp.s
+1_two_sum.cpp.s:
+	$(MAKE) -f CMakeFiles/LEETCODING.dir/build.make CMakeFiles/LEETCODING.dir/1_two_sum.cpp.s
+.PHONY : 1_two_sum.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... LEETCODING"
-	@echo "... DS_binary_tree.o"
-	@echo "... DS_binary_tree.i"
-	@echo "... DS_binary_tree.s"
+	@echo "... 1_two_sum.o"
+	@echo "... 1_two_sum.i"
+	@echo "... 1_two_sum.s"
 .PHONY : help
 
 
