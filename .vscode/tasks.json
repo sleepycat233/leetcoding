@@ -27,7 +27,10 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-g",
+                "-fsanitize=address",
+                "-fno-omit-frame-pointer"
             ],
             "options": {
                 "cwd": "${fileDirname}"

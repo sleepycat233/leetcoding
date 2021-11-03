@@ -1,6 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
+char in[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+char *ro[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
+char res[12];
+
+char *intToRoman_best(char n) {
+    char j = 0;
+    char k = 0;
+    res[0] = '\0';
+    for(char i = 0; n; ++i) {
+        while(n >= in[i]) {
+            j = 0;
+            while((res[k] = ro[i][j++]) != '\0')
+                k++;
+
+            n -= in[i];
+
+        }
+    }
+
+    return res;
+}
+
+/* ////////////////////////////////////// */
+/*
 int r2i['X' + 1] = {
     ['I'] = 1,
     ['V'] = 5,
@@ -48,7 +74,10 @@ char *intToRoman(int n)
     res[i] = '\0';
     return res;
 }
-
+ */
 int main() {
-    printf("%s\n", intToRoman(1994));
+    // printf("%s\n", intToRoman(1994));
+    printf("%s\n", intToRoman_best(9));
+    printf("%s\n", intToRoman_best(58));
+    // printf("%s\n", intToRoman_best(3));
 }
