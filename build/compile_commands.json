@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/usr1/projects/leetcoding/build",
-  "command": "/bin/g++-9    -g -fno-omit-frame-pointer -fsanitize=address   -Wall -o CMakeFiles/LEETCODING.dir/1_two_sum.cpp.o -c /home/usr1/projects/leetcoding/1_two_sum.cpp",
-  "file": "/home/usr1/projects/leetcoding/1_two_sum.cpp"
-}
-]
