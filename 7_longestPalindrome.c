@@ -49,7 +49,7 @@ char *longestPalindrome(char *s) {
 int main() {
     // longestPalindrome();
 
-    char *str = "babad";
+    char *str = "abacdfgdcaba";
     // printf("%d\n", is_substring_palindrome(0,strlen(str)-1,str));
     printf("%s\n", longestPalindrome(str));
 }
