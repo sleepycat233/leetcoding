@@ -18,6 +18,16 @@ public class dp {
         return arr;
     }
 
+
+    // given a number t, and an array of numbers n
+    // determine whether or not t is a sum of numbers from n. each element in n can be used for multiple times.
+    // time complexity analysis:
+    // the program has a tree structure and thus O(b^n)
+    // suppose there are n numbers in the array,
+    // n will become the braching factor, and thus becomes the base
+    // the tree has an height of m
+    // therefore, O(n^m)
+    // space complexity: O(m) with m being the height of the tree
     private static boolean canSum(int target, int[] numbers) {
         if(target == 0) {
             return true;
@@ -60,6 +70,26 @@ public class dp {
         return false;
     }
 
+    // time: O(m*n)
+    // space: O(m)
+    public static boolean cansum_tab(int tar, int[] nums) {
+        boolean[] tab = new boolean[tar+1];
+        tab[tar] = true;
+
+        for(int i = tar; i > 0; i--) {
+            if(tab[i] == true) {
+                for(int n : nums) {
+                    if(i-n >= 0)
+                        tab[i-n] = true;
+                }
+            }
+        }
+
+        System.out.println(Arrays.toString(tab));
+
+        return tab[0];
+    }
+
     private static boolean howSum(int target, int[] numbers, List<Integer> rl) {
         if (target == 0) {
             return true;
@@ -79,7 +109,7 @@ public class dp {
         return false;
     }
 
-    // 8, [2,3,5]
+    // 8, [2,3,5] - return [3,5], but not [2,2,2,2]
     private static List<Integer> bestSum(int tar, int[] nums)
     {
         if(tar == 0) {
@@ -105,9 +135,16 @@ public class dp {
         return best_comb;
     }
 
+    public static int[] bestsum_tab(int tar, int[] nums) {
+        List<List<Integer>> tab = new ArrayList<>(tar+1);
+    }
+
     //"ABCDABA", {"CD", "AB", "A"}
     // given a string s1 and an array of strings pat,
     // reture true or false on whether or not s1 can be constructed by concatenating strings in pat.
+
+    // time: O(m * n * n)
+    // substring() method is O(n)
     public static boolean canConstruct(String str, String[] patterns) {
 /*
         boolean[][] cache = new boolean[patterns.length][str.length()];
@@ -158,6 +195,7 @@ public class dp {
         // System.out.println("t = " + t);
         // System.out.printf("canSum(%d): %b\n", t, canSum_memo(t, n, memo));
         // System.out.println(memo.toString());
+        System.out.println(cansum_tab(t, n));
 
         // List<Integer> r = new ArrayList<>(20);
         // howSum(t, n, r);
@@ -170,6 +208,6 @@ public class dp {
         //"ABCDABA", {"CD", "AB", "A"}
         String[] p = {"bo", "rd", "ate", "t", "sta", "sk", "boar"};
         // String[] p = {"ab", "c", "abcd"};
-        System.out.println(canConstruct("skateboard", p));
+        // System.out.println(canConstruct("skateboard", p));
     }
 }
