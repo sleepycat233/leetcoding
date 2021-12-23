@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch CoinExchange2",
+            "request": "launch",
+            "mainClass": "CoinExchange2",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
+            "name": "Launch ThreeSum",
+            "request": "launch",
+            "mainClass": "ThreeSum",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
+            "name": "Launch TwoSum",
+            "request": "launch",
+            "mainClass": "TwoSum",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
+            "name": "Launch RegularExpression",
+            "request": "launch",
+            "mainClass": "RegularExpression",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
+            "name": "Launch wildcard_matching",
+            "request": "launch",
+            "mainClass": "wildcard_matching",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
             "name": "Launch lcs",
             "request": "launch",
             "mainClass": "practice.dp.lcs",

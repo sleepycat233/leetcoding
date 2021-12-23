@@ -85,7 +85,7 @@ public class dp {
             }
         }
 
-        System.out.println(Arrays.toString(tab));
+        // System.out.println(Arrays.toString(tab));
 
         return tab[0];
     }
@@ -135,13 +135,22 @@ public class dp {
         return best_comb;
     }
 
-    public static int[] bestsum_tab(int tar, int[] nums) {
+    public static int[] bestSum_tab(int tar, int[] nums) {
         List<List<Integer>> tab = new ArrayList<>(tar+1);
+
+        for(List<Integer> list : tab) {
+            list = new ArrayList<>();
+        }
+
+
+        System.out.println(tab.get(3));
+
+        return null;
     }
 
     //"ABCDABA", {"CD", "AB", "A"}
     // given a string s1 and an array of strings pat,
-    // reture true or false on whether or not s1 can be constructed by concatenating strings in pat.
+    // reture true or false on whether or not s1 can be constructed by concatenating strings from pat.
 
     // time: O(m * n * n)
     // substring() method is O(n)
@@ -196,18 +205,21 @@ public class dp {
         // System.out.printf("canSum(%d): %b\n", t, canSum_memo(t, n, memo));
         // System.out.println(memo.toString());
         System.out.println(cansum_tab(t, n));
+        // System.out.println(howSum(t, n, memo));
 
-        // List<Integer> r = new ArrayList<>(20);
-        // howSum(t, n, r);
-        // System.out.printf("howSum(%d): %s\n", t, r.toString());
+        List<Integer> r = new ArrayList<>(20);
+        howSum(t, n, r);
+        System.out.printf("howSum(%d): %s\n", t, r.toString());
 
         // List<Integer> a;
         // a = bestSum(t, n);
         // System.out.println(a.toString());
 
         //"ABCDABA", {"CD", "AB", "A"}
-        String[] p = {"bo", "rd", "ate", "t", "sta", "sk", "boar"};
+        // String[] p = {"bo", "rd", "ate", "t", "sta", "sk", "boar"};
         // String[] p = {"ab", "c", "abcd"};
         // System.out.println(canConstruct("skateboard", p));
+
+        System.out.println(bestSum_tab(t, n));
     }
 }
