@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/coin-change-2/
 
+// Unbounded Knapsack
+
 public class CoinExchange2 {
     public int exchange(int amount, int[] coins) {
         int m = amount;
@@ -7,6 +9,7 @@ public class CoinExchange2 {
         int[][] t = new int[n+1][m+1];
 
         if(amount == 0) return 1;
+        // but why? it doesn't make sense. there are 0 ways to make an amout of 0, why 1??
 
         for(int i = 1; i <= n; i++) {
             for(int j = 1; j <= m; j++) {

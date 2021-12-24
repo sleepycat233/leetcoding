@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Knapsack",
+            "request": "launch",
+            "mainClass": "Knapsack",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
+            "name": "Launch NestedClass",
+            "request": "launch",
+            "mainClass": "practice.NestedClass",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
+            "name": "Launch AnonymousClass",
+            "request": "launch",
+            "mainClass": "practice.AnonymousClass",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
             "name": "Launch CoinExchange2",
             "request": "launch",
             "mainClass": "CoinExchange2",
