@@ -6,6 +6,26 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch WildcardMatching",
+            "request": "launch",
+            "mainClass": "WildcardMatching",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
+            "name": "Launch current file",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch MaxSubStrNoRep",
+            "request": "launch",
+            "mainClass": "MaxSubStrNoRep",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
             "name": "Launch Knapsack",
             "request": "launch",
             "mainClass": "Knapsack",
