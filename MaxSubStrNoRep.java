@@ -83,8 +83,8 @@ public class MaxSubStrNoRep {
         return maxlen;
     }
 
-    // sliding window - 滑动窗口
-    public int longestSubstring_slidingWindow(String str) {
+    // sliding window - set - 滑动窗口
+    public int longestSubstring_set(String str) {
         Set<Character> s = new HashSet<>();
         int i = 0;
         int maxlen = 0;
@@ -96,9 +96,44 @@ public class MaxSubStrNoRep {
                     s.remove(str.charAt(i));
                     i++;
                 }
+                i++;    //! skip the duplicated character
             }
             if(s.size() > maxlen) maxlen = s.size();
-            System.out.println(Arrays.toString(s.toArray()));
+            // System.out.println("i " + i + ", j " + j);
+            // System.out.println(Arrays.toString(s.toArray()));
+        }
+
+        return maxlen;
+    }
+
+    // sliding window - map
+    public int longestSubstring_map(String str)
+    {
+        Map<Character, Integer> m = new HashMap<>();
+
+        char c;
+        int i = 0, maxlen = 0;
+        for (int j = 0; j < str.length(); j++) {
+            if (m.containsKey(c = str.charAt(j))) {
+                i = Math.max(m.get(c) + 1, i);
+            }
+            m.put(c, j);
+            maxlen = Math.max(j - i + 1, maxlen);
+        }
+        return maxlen;
+    }
+
+    public int longestSubstring_map_opt(String str) {
+        int maxlen = 0;
+        int[] last = new int[128];
+        for(int i = 0; i < 128; i++) {
+            last[i] = -1;
+        }
+
+        for(int i = 0, j = 0; j < str.length(); j++) {
+            i = Math.max(i, last[str.charAt(j)] + 1);
+            maxlen = Math.max(maxlen, j-i+1);
+            last[str.charAt(j)] = j;
         }
 
         return maxlen;
@@ -114,6 +149,9 @@ public class MaxSubStrNoRep {
         // System.out.println(sol.longestSubstring_slidingWindow("aabaab!bb"));
         // System.out.println(sol.longestSubstring_bruteforce("a"));
         // System.out.println(sol.longestSubstring_bruteforce(""));
-        System.out.println(sol.longestSubstring_bruteforce_set("pwwkew"));
+        // System.out.println(sol.longestSubstring_bruteforce_set("pwwkew"));
+        // System.out.println(sol.longestSubstring_map("pwwkew"));
+        // System.out.println(sol.longestSubstring_set("aabaab!bb"));
+        System.out.println(sol.longestSubstring_map_opt("aabaab!bb"));
     }
 }
