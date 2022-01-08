@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch ThreeSumClosest",
+            "request": "launch",
+            "mainClass": "ThreeSumClosest",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
+            "name": "Launch BinaryExponentiation",
+            "request": "launch",
+            "mainClass": "practice.BinaryExponentiation",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
+            "name": "Launch matrix_multiply",
+            "request": "launch",
+            "mainClass": "practice.matrix_multiply",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
             "name": "Launch WildcardMatching",
             "request": "launch",
             "mainClass": "WildcardMatching",
