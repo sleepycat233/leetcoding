@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch HappyNumber",
+            "request": "launch",
+            "mainClass": "HappyNumber",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
+            "name": "Launch AddTwoList",
+            "request": "launch",
+            "mainClass": "AddTwoList",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
             "name": "Launch ThreeSumClosest",
             "request": "launch",
             "mainClass": "ThreeSumClosest",

@@ -4,7 +4,7 @@ IndentWidth: 4
 TabWidth: 4
 UseTab: Never
 BreakBeforeBraces: Stroustrup
-#AllowShortIfStatementsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false
 IndentCaseLabels: false
-#AllowShortBlocksOnASingleLine: Never
-#AllowShortFunctionsOnASingleLine: None
+AllowShortBlocksOnASingleLine: Never
+AllowShortFunctionsOnASingleLine: None
