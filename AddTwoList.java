@@ -4,7 +4,7 @@
 
 import java.util.*;
 
-class ListNode {
+/* class ListNode {
     int val;
     ListNode next;
     ListNode() {}
@@ -18,7 +18,7 @@ class ListNode {
         }
         System.out.println();
     }
-}
+} */
 
 public class AddTwoList {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2)

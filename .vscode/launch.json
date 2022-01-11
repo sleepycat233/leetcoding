@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch LinkedListCycleII",
+            "request": "launch",
+            "mainClass": "LinkedListCycleII",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
+            "name": "Launch LinkedListCycle",
+            "request": "launch",
+            "mainClass": "LinkedListCycle",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
             "name": "Launch HappyNumber",
             "request": "launch",
             "mainClass": "HappyNumber",

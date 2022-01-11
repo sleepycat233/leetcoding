@@ -34,6 +34,8 @@ public class HappyNumber {
         return true;
     }
 
+    
+
     public static void main(String[] args) {
         HappyNumber sol = new HappyNumber();
         System.out.println(sol.isHappyNumber(999));
