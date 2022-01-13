@@ -34,7 +34,9 @@ public class HappyNumber {
         return true;
     }
 
-    
+    //通过反复调用 getNext(n) 得到的链是一个隐式的链表。隐式意味着我们没有实际的链表节点和指针，但数据仍然形成链表结构
+    // https://www.wikiwand.com/en/Cycle_detection#/Example
+    // 所以可以用 - 快慢指针
 
     public static void main(String[] args) {
         HappyNumber sol = new HappyNumber();

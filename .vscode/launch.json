@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch FindDuplicateNumber",
+            "request": "launch",
+            "mainClass": "FindDuplicateNumber",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
             "name": "Launch LinkedListCycleII",
             "request": "launch",
             "mainClass": "LinkedListCycleII",

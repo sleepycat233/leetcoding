@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/contains-duplicate/
+
 import java.util.*;
 
 public class ContainsDuplicate {
