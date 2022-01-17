@@ -123,6 +123,7 @@ public class MaxSubStrNoRep {
         return maxlen;
     }
 
+    // character to integer mapping replaced with an integer array indexed by ASCII code of the character.
     public int longestSubstring_map_opt(String str) {
         int maxlen = 0;
         int[] last = new int[128];

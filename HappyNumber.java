@@ -25,8 +25,8 @@ public class HappyNumber {
                 sum += (n%10)*(n%10);
                 n/=10;
             }
-            System.out.format("sum %s\n", sum);
-            wait(500);
+            // System.out.format("sum %s\n", sum);
+            // wait(500);
             if(!s.add(sum)) return false;
             n = sum;
             sum = 0;
@@ -38,15 +38,41 @@ public class HappyNumber {
     // https://www.wikiwand.com/en/Cycle_detection#/Example
     // 所以可以用 - 快慢指针
 
+    private int getNext(int n) {
+        int sum = 0;
+        while(n > 0) {
+            sum += (n%10) * (n%10);
+            n /= 10;
+        }
+        return sum;
+    }
+
+    public boolean isHappyNumber2(int n) {
+        int slow = n, fast = n;
+        while(fast != 1) {
+            slow = getNext(slow);
+            fast = getNext(getNext(fast));
+            if(slow == fast) break;
+        }
+        return (fast == 1);
+    }
+
+
     public static void main(String[] args) {
         HappyNumber sol = new HappyNumber();
         System.out.println(sol.isHappyNumber(999));
 
-        // for(int i = 1; i < 10001; i++) {
-        //     if(sol.isHappyNumber(i) == true) {
-        //         System.out.format("%d, ", i);
-        //     }
-        // }
-        // System.out.println();
+        List<Integer> l1 = new ArrayList<>();
+        List<Integer> l2 = new ArrayList<>();
+        for(int i = 1; i < 100; i++) {
+            if(sol.isHappyNumber(i) == true) {
+                l1.add(i);
+            }
+            if(sol.isHappyNumber2(i) == true) {
+                l2.add(i);
+            }
+        }
+        System.out.println(Arrays.toString(l1.toArray()));
+        System.out.println(Arrays.toString(l2.toArray()));
     }
 }
