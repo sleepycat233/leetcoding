@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch LongestPalindrome",
+            "request": "launch",
+            "mainClass": "LongestPalindrome",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
+            "name": "Launch StreamPrac",
+            "request": "launch",
+            "mainClass": "practice.stream.StreamPrac",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
+            "name": "Launch NonOverlappingIntervals",
+            "request": "launch",
+            "mainClass": "NonOverlappingIntervals",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
             "name": "Launch ContainerMostWater",
             "request": "launch",
             "mainClass": "ContainerMostWater",
