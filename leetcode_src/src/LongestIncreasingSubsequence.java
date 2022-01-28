@@ -17,6 +17,8 @@ public class LongestIncreasingSubsequence {
         return len;
     }
 
+    // greedy + linear search
+    // O(n^2)
     public int lengthOfLIS2(int[] nums) {
         int n = nums.length;
         int[] d = new int[n+1];
@@ -38,6 +40,37 @@ public class LongestIncreasingSubsequence {
             }
         }
 
+        return len;
+    }
+
+    // Greedy + binary search
+    public int lengthOfLIS3(int[] nums) {
+        int n = nums.length;
+        int len = 1;
+        int[] d = new int[n+1];
+        d[1] = nums[0];
+
+        for(int i = 1; i < n; i++) {
+            if(nums[i] > d[len]) {
+                d[++len] = nums[i];
+            }
+            else {
+                int l = i;
+                int r = len;
+                int pos = 0;
+                while(l <= n) {
+                    int mid = (l+r)/2;
+                    if(d[mid] < nums[i]) {
+                        pos = mid;
+                        l = mid+1;
+                    }
+                    else {
+                        r = mid-1;
+                    }
+                }
+                d[pos+1] = nums[i];
+            }
+        }
         return len;
     }
 
@@ -87,12 +120,12 @@ public class LongestIncreasingSubsequence {
 
     public static void main(String[] args) {
         LongestIncreasingSubsequence sol = new LongestIncreasingSubsequence();
-        // System.out.println(sol.lengthOfLIS(new int[] {10, 9, 2, 5, 3, 7, 101, 18}));
-        // System.out.println(sol.lengthOfLIS(new int[] {1, 3, 6, 7, 9, 4, 10, 5, 6}));
-        // System.out.println(sol.lengthOfLIS(new int[] {1}));
+        System.out.println(sol.lengthOfLIS(new int[] {10, 9, 2, 5, 3, 7, 101, 18}));
+        System.out.println(sol.lengthOfLIS(new int[] {1, 3, 6, 7, 9, 4, 10, 5, 6}));
+        System.out.println(sol.lengthOfLIS(new int[] {1}));
 
         // System.out.println(Arrays.toString(sol.sequenceOfLIS(new int[] {1})));
         // System.out.println(Arrays.toString(sol.sequenceOfLIS(new int[] {10, 9, 2, 5, 3, 7, 101, 18})));
-        System.out.println(Arrays.toString(sol.sequenceOfLIS(new int[] {1, 3, 6, 7, 9, 4, 10, 5, 6})));
+        // System.out.println(Arrays.toString(sol.sequenceOfLIS(new int[] {1, 3, 6, 7, 9, 4, 10, 5, 6})));
     }
 }

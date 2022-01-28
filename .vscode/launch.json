@@ -113,7 +113,7 @@
             "type": "java",
             "name": "Launch current file",
             "request": "launch",
-            "mainClass": "${file}"
+            "mainClass": "${workspaceFolder}/${file}"
         },
         {
             "type": "java",
