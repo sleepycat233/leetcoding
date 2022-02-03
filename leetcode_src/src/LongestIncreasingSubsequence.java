@@ -30,13 +30,15 @@ public class LongestIncreasingSubsequence {
                 d[++len] = nums[i];
             }
             else {
+                int pos = 1;
                 for(int j = 1; j <= len; j++) {
-                    if(nums[i] > d[j]) {
-                        d[j] = nums[i];
-                        len = j;
+                    if(nums[i] <= d[j]) {
+                        pos = j;
+                        // d[j] = nums[i];
                         break;
                     }
                 }
+                d[pos] = nums[i];
             }
         }
 
@@ -49,16 +51,17 @@ public class LongestIncreasingSubsequence {
         int len = 1;
         int[] d = new int[n+1];
         d[1] = nums[0];
+        //可以二分查找的条件：d[]数组为严格递增
 
         for(int i = 1; i < n; i++) {
             if(nums[i] > d[len]) {
                 d[++len] = nums[i];
             }
             else {
-                int l = i;
+                int l = 1;
                 int r = len;
                 int pos = 0;
-                while(l <= n) {
+                while(l <= r) {
                     int mid = (l+r)/2;
                     if(d[mid] < nums[i]) {
                         pos = mid;
@@ -120,9 +123,10 @@ public class LongestIncreasingSubsequence {
 
     public static void main(String[] args) {
         LongestIncreasingSubsequence sol = new LongestIncreasingSubsequence();
-        System.out.println(sol.lengthOfLIS(new int[] {10, 9, 2, 5, 3, 7, 101, 18}));
-        System.out.println(sol.lengthOfLIS(new int[] {1, 3, 6, 7, 9, 4, 10, 5, 6}));
-        System.out.println(sol.lengthOfLIS(new int[] {1}));
+        System.out.println(sol.lengthOfLIS3(new int[] {10, 9, 2, 5, 3, 7, 101, 18}));
+        System.out.println(sol.lengthOfLIS3(new int[] {1, 3, 6, 7, 9, 4, 10, 5, 6}));
+        System.out.println(sol.lengthOfLIS3(new int[] {0, 1, 0, 3, 2, 3}));
+        System.out.println(sol.lengthOfLIS3(new int[] {4, 10, 4, 3, 8, 9}));
 
         // System.out.println(Arrays.toString(sol.sequenceOfLIS(new int[] {1})));
         // System.out.println(Arrays.toString(sol.sequenceOfLIS(new int[] {10, 9, 2, 5, 3, 7, 101, 18})));
