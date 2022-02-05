@@ -13,9 +13,8 @@ class Solution {
                 stack.pop();
             }
 
-            int key;
-            if(map.containsKey(key = nums2[j])) {
-                int pos = map.get(key);
+            if(map.containsKey(nums2[j])) {
+                int pos = map.get(nums2[j]);
                 res[pos] = (stack.isEmpty()) ? -1 : stack.peek();
             }
             stack.push(nums2[j]);
