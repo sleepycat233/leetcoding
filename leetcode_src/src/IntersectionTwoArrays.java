@@ -27,7 +27,7 @@ public class IntersectionTwoArrays {
         return res.stream().mapToInt(i -> i).toArray();
     }
 
-    //stack
+    //hashmap
     public int[] intersect2(int[] nums1, int[] nums2) {
         int[] res = new int[Math.min(nums1.length, nums2.length)];
         int index = 0;

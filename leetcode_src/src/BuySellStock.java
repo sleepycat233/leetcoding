@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class BuySellStock {
+    //brute force
     public int maxProfit(int[] prices) {
         int[] t = new int[prices.length];
         int maxp = 0;
@@ -31,6 +32,19 @@ public class BuySellStock {
         }
 
         return maxp;
+    }
+
+    // dp
+    public int maxProfit3(int[] prices) {
+        int[] t = new int[prices.length];
+        t[0] = 0;
+        int minprice = Integer.MAX_VALUE;
+        int maxprice = -1;
+        for(int i = 1; i < prices.length; i++) {
+
+        }
+
+        return 0;
     }
 
     public static void main(String[] args) {
