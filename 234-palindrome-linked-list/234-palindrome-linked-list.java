@@ -11,20 +11,28 @@
 class Solution {
     public boolean isPalindrome(ListNode head) {
         Deque<Integer> s = new LinkedList<>();
-        ListNode curr = head;
-
-        while(curr != null) {
-            s.push(curr.val);
-            curr = curr.next;
+        ListNode fast = head;
+        ListNode slow = head;
+        ListNode l2;
+        while(fast != null && fast.next != null) {
+            s.push(slow.val);
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        curr = head;
+
+        if(fast == null) { //even
+            l2 = slow;
+        }
+        else { //odd
+            l2 = slow.next;
+        }
+
         while(!s.isEmpty()) {
-            if(s.pop() != curr.val) {
+            if(s.pop() != l2.val) {
                 return false;
             }
-            curr = curr.next;
+            l2 = l2.next;
         }
-
         return true;
     }
 }
