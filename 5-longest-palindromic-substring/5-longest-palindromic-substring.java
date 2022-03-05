@@ -7,23 +7,28 @@ class Solution {
 
         for(int i = 1; i < n; i++) {
             int l1 = expand(s, i-1, i);
-            if(l1 > maxlen) {
+            /* if(l1 > maxlen) {
                 maxlen = l1;
-                end = l1/2 + i - 1;
+                end = i + l1/2 - 1;
                 begin = i - l1/2;
-            }
+            } */
             int l2 = expand(s, i-1, i+1);
-            if(l2 > maxlen) {
+            /* if(l2 > maxlen) {
                 maxlen = l2;
                 end = i + l2/2;
                 begin = i - l2/2;
+            } */
+            int len = Math.max(l1,l2);
+            if(len > maxlen) {
+                maxlen = len;
+                end = i + (len-1)/2; //* smart!
+                begin = i - len/2;
             }
         }
-
+        // System.out.println("begin: " + begin + ", end: " + end);
         return s.substring(begin, end+1);
     }
-    
-        private int expand(String s, int l, int r) {
+    private int expand(String s, int l, int r) {
         int maxlen = 0, len = 0;
 
         while (l >= 0 && r < s.length()) {
