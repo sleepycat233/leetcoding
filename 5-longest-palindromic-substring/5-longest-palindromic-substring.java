@@ -1,32 +1,45 @@
 class Solution {
     public String longestPalindrome(String s) {
-        
         int n = s.length();
-        boolean[][] t = new boolean[n][n];
-        int maxlen = 0;
-        int ml = 0, mr = 0;
-
         if(n < 2) return s;
+        int maxlen = 1;
+        int begin = 0, end = 0;
 
-        for(int j = 0; j < n; j++) {
-            t[j][j] = true;
-            if (j != 0 && s.charAt(j) == s.charAt(j - 1)) {
-                t[j][j - 1] = true;
+        for(int i = 1; i < n; i++) {
+            int l1 = expand(s, i-1, i);
+            if(l1 > maxlen) {
+                maxlen = l1;
+                end = l1/2 + i - 1;
+                begin = i - l1/2;
             }
-
-            for(int i = 0; i < j; i++) { //? or: i < j-1 -> nope
-                if(t[j-1][i+1] == true && s.charAt(i) == s.charAt(j)) {
-                    t[j][i] = true;
-                }
-                if (t[j][i] && j - i + 1 > maxlen) {
-                    maxlen = j - i + 1;
-                    ml = i;
-                    mr = j;
-                }
+            int l2 = expand(s, i-1, i+1);
+            if(l2 > maxlen) {
+                maxlen = l2;
+                end = i + l2/2;
+                begin = i - l2/2;
             }
         }
 
-        return s.substring(ml, mr+1);
+        return s.substring(begin, end+1);
+    }
     
+        private int expand(String s, int l, int r) {
+        int maxlen = 0, len = 0;
+
+        while (l >= 0 && r < s.length()) {
+            if (s.charAt(l) == s.charAt(r)) {
+                len = r - l + 1;
+                if (len > maxlen) {
+                    maxlen = len;
+                }
+                l--;
+                r++;
+            }
+            else {
+                break;
+            }
+        }
+
+        return maxlen;
     }
 }
