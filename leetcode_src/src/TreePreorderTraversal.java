@@ -1,45 +1,5 @@
 import java.util.*;
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode()
-    {
-    }
-    TreeNode(int val)
-    {
-        this.val = val;
-    }
-    TreeNode(int val, TreeNode left, TreeNode right)
-    {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-    void printByLayer() {
-        Deque<TreeNode> q = new LinkedList<>();
-        q.add(this);
-
-        while(true) {
-            int nodeCount = q.size();
-            if(nodeCount == 0) break;
-
-            while(nodeCount-- > 0) {
-                TreeNode node = q.getFirst();
-                if(node.left != null)
-                    q.add(node.left);
-                if(node.right != null)
-                    q.add(node.right);
-
-                System.out.format("%d ", node.val);
-                q.removeFirst();
-            }
-            System.out.println();
-        }
-    }
-}
-
 public class TreePreorderTraversal {
     private static int count = 0;
 
