@@ -61,7 +61,7 @@ class Node {
 
 public class BinaryTreeUtil {
 
-    static private List<Integer> strToArr(String s) {
+    static private List<Integer> strToList(String s) {
         String[] values = s.split(",");
         List<Integer> arr = new ArrayList<>();
         for (String v : values) {
@@ -78,7 +78,7 @@ public class BinaryTreeUtil {
 
     static public TreeNode generateBinaryTree(String values)
     {
-        List<Integer> nodes = strToArr(values);
+        List<Integer> nodes = strToList(values);
         if (nodes.size() == 0)
             return null;
         List<TreeNode> prev = new ArrayList<>();
@@ -89,17 +89,15 @@ public class BinaryTreeUtil {
 
         while (ite.hasNext()) {
             // if(prev == null) break;
-            for (int i = 0; i < prev.size(); i++) {
+            for (TreeNode n : prev) {
                 TreeNode ll = null, rl = null;
-                TreeNode pn = prev.get(i);
-                if (ite.hasNext())
-                    ll = new TreeNode(ite.next());
-                if (ite.hasNext())
-                    rl = new TreeNode(ite.next());
-                curr.add(ll);
-                curr.add(rl);
-                pn.left = ll;
-                pn.right = rl;
+                Integer val = null;
+                if (ite.hasNext() && (val = ite.next()) != null) ll = new TreeNode(val);
+                if (ite.hasNext() && (val = ite.next()) != null) rl = new TreeNode(val);
+                if(ll != null) curr.add(ll);
+                if(rl != null) curr.add(rl);
+                n.left = ll;
+                n.right = rl;
             }
             prev = curr;
             curr = new ArrayList<>();
@@ -110,7 +108,7 @@ public class BinaryTreeUtil {
 
     public static Node generateNaryTree(String values)
     {
-        List<Integer> nodes = strToArr(values);
+        List<Integer> nodes = strToList(values);
         Deque<Node> prev = new LinkedList<>();
         Deque<Node> curr = new LinkedList<>();
         Node root = new Node(nodes.get(0));
