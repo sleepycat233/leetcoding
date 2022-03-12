@@ -18,25 +18,22 @@ class Node {
 */
 
 class Solution {
+
+    private List<List<Integer>> result = new ArrayList<>();
     public List<List<Integer>> levelOrder(Node root) {
-        List<List<Integer>> res = new ArrayList<>();
-        Deque<Node> q = new LinkedList<>();
-        if(root != null) q.add(root);
-        while(!q.isEmpty()) {
-            int n = q.size();
-            List<Integer> level = new ArrayList<>();
-            for(int i = 0; i < n; i++) {
-                Node curr = q.remove();
-                /* if (curr.children != null) {
-                    for (Node c : curr.children) {
-                        q.add(c);
-                    }
-                } */
-                if(curr.children != null) q.addAll(curr.children);
-                level.add(curr.val);
-            }
-            res.add(level);
+        if(root != null) levelTraversal(root, 0);
+        return result;
+    }
+
+    private void levelTraversal(Node node, int level) {
+        if(result.size() <= level) {
+            result.add(new ArrayList<>());
         }
-        return res;
+        result.get(level).add(node.val);
+        if(node.children != null) {
+            for(Node child : node.children) {
+                levelTraversal(child, level+1);
+            }
+        }
     }
 }
