@@ -109,8 +109,8 @@ public class BinaryTreeUtil {
     public static Node generateNaryTree(String values)
     {
         List<Integer> nodes = strToList(values);
-        Deque<Node> prev = new LinkedList<>();
-        Deque<Node> curr = new LinkedList<>();
+        List<Node> prev = new ArrayList<>();
+        List<Node> curr = new ArrayList<>();
         Node root = new Node(nodes.get(0));
         int n = nodes.size();
 
