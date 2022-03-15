@@ -15,22 +15,27 @@
  */
 class Solution {
     public void flatten(TreeNode root) {
-        Deque<TreeNode> s = new ArrayDeque<>();
-        TreeNode prev = null;
-
-        if (root != null) s.push(root);
-
-        while (!s.isEmpty()) {
-            TreeNode curr = s.pop();
-            while (curr != null) {
-                TreeNode next = curr.left;
-                if (curr.right != null) s.push(curr.right);
-                if (prev != null) {
-                    prev.left = null;
-                    prev.right = curr;
+        TreeNode n = root;
+        while(n != null) {
+            if(n.left == null) {
+                n = n.right;
+                continue;
+            }
+            else {
+                TreeNode pre = n.left;
+                if(n.right != null) {
+                    while(pre.left != null || pre.right != null) {
+                        if(pre.right != null) {
+                            pre = pre.right;
+                        }
+                        else if(pre.left != null) {
+                            pre = pre.left;
+                        }
+                    }
+                    pre.right = n.right;
                 }
-                prev = curr;
-                curr = next;
+                n.right = n.left;
+                n.left = null;
             }
         }
     }
