@@ -92,12 +92,24 @@ public class BinaryTreeUtil {
             for (TreeNode n : prev) {
                 TreeNode ll = null, rl = null;
                 Integer val = null;
-                if (ite.hasNext() && (val = ite.next()) != null) ll = new TreeNode(val);
-                if (ite.hasNext() && (val = ite.next()) != null) rl = new TreeNode(val);
-                if(ll != null) curr.add(ll);
-                if(rl != null) curr.add(rl);
-                n.left = ll;
-                n.right = rl;
+                // if (ite.hasNext() && (val = ite.next()) != null) ll = new TreeNode(val);
+                // if (ite.hasNext() && (val = ite.next()) != null) rl = new TreeNode(val);
+                // if(ll != null) curr.add(ll);
+                // if(rl != null) curr.add(rl);
+                if (ite.hasNext()) {
+                    val = ite.next();
+                    ll = (val == null) ? null : new TreeNode(val);
+                }
+                if (ite.hasNext()) {
+                    val = ite.next();
+                    rl = (val == null) ? null : new TreeNode(val);
+                }
+                curr.add(ll);
+                curr.add(rl);
+                if(n != null) {
+                    n.left = ll;
+                    n.right = rl;
+                }
             }
             prev = curr;
             curr = new ArrayList<>();
