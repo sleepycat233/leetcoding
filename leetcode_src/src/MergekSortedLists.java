@@ -5,11 +5,15 @@ public class MergekSortedLists {
         Queue<ListNode> q = new PriorityQueue<>(
             (ListNode n1, ListNode n2) -> Integer.compare(n1.val, n2.val));
 
+        if(lists == null) return null;
         for(int i = 0; i < lists.length; i++) {
-            q.offer(lists[i]);
+            if(lists[i] != null) q.offer(lists[i]);
         }
-        for (int i = q.size(); i > 0; i--) {
-            System.out.println(q.poll());
+
+        ListNode prev = new ListNode();
+        ListNode dummy = prev;
+        while(!q.isEmpty()) {
+
         }
 
         return null;
@@ -31,7 +35,13 @@ public class MergekSortedLists {
 
     public static void main(String[] args) {
         MergekSortedLists sol = new MergekSortedLists();
-        
-        sol.mergeKLists();
+        ListNode l1 = LinkedListUtil.generateLinkedList("[1,4,5]");
+        ListNode l2 = LinkedListUtil.generateLinkedList("[1,3,4]");
+        ListNode l3 = LinkedListUtil.generateLinkedList("[2,6]");
+        l1.print();
+        l2.print();
+        l3.print();
+        ListNode[] ln = new ListNode[]{l1, l2, l3};
+        sol.mergeKLists(ln);
     }
 }
