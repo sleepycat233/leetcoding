@@ -2,7 +2,7 @@
 
 import java.util.*;
 
-class ListNode {
+/* class ListNode {
     int val;
     ListNode next;
     ListNode(int x)
@@ -28,7 +28,7 @@ class ListNode {
         }
         System.out.println();
     }
-}
+} */
 
 // cycle detection: 快慢指针
 // https://web.archive.org/web/20160401024212/http://learningarsenal.info:80/index.php/2015/08/24/detecting-start-of-a-loop-in-singly-linked-list/
