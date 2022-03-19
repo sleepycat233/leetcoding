@@ -13,10 +13,13 @@ public class MergekSortedLists {
         ListNode prev = new ListNode();
         ListNode dummy = prev;
         while(!q.isEmpty()) {
-
+            ListNode curr = q.poll();
+            if (curr.next != null) q.offer(curr.next);
+            prev.next = curr;
+            prev = curr;
         }
 
-        return null;
+        return dummy.next;
     }
 
     public void test() {
@@ -42,6 +45,10 @@ public class MergekSortedLists {
         l2.print();
         l3.print();
         ListNode[] ln = new ListNode[]{l1, l2, l3};
-        sol.mergeKLists(ln);
+        ListNode res = sol.mergeKLists(ln);
+        res.print();
+        ListNode a = sol.mergeKLists(null);
+        ListNode b = sol.mergeKLists(new ListNode[]{});
+        
     }
 }
