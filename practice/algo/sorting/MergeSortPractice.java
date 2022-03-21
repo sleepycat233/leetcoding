@@ -1,8 +1,11 @@
 import java.util.*;
 
-public class MergeSort {
-    static public int[] sort(int[] a) {
-        return divide(a, 0, a.length-1);
+public class MergeSortPractice {
+    static public void sort(int[] a) {
+        int[] res = divide(a, 0, a.length-1);
+        for(int i = 0; i < a.length; i++) {
+            a[i] = res[i];
+        }
     }
 
     static private int[] divide(int[] a, int l, int r) {
@@ -39,8 +42,8 @@ public class MergeSort {
 
     public static void main(String[] args) {
         int[] a = new int[]{3, 1, 2, 5};
-        int[] res = MergeSort.sort(a);
-        System.out.println(Arrays.toString(res));
+        MergeSortPractice.sort(a);
+        System.out.println(Arrays.toString(a));
     }
 
 }
