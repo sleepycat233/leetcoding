@@ -1,6 +1,7 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        Deque<Character> stack = new ArrayDeque<>();
+
+        Deque<Character> stack = new LinkedList<>();
         if(s.length() != t.length()) return false;
 
         for(int i = 0, j = 0; i < s.length(); i++) {
@@ -11,5 +12,6 @@ class Solution {
             }
         }
         return stack.isEmpty();
+    
     }
 }
