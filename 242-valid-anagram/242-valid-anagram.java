@@ -1,19 +1,14 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        int[] cs = countstr(s);
-        int[] ct = countstr(t);
-        for(int i = 0; i < cs.length; i++) {
-            if(cs[i] != ct[i]) {
-                return false;
-            }
+        if(s.length() != t.length()) return false;
+        int[] count = new int[26];
+        for(int i = 0; i < s.length(); i++) {
+            count[s.charAt(i) - 'a']++;
+            count[t.charAt(i) - 'a']--;
+        }
+        for(int j = 0; j < 26; j++) {
+            if(count[j] != 0) return false;
         }
         return true;
-    }
-    private int[] countstr(String str) {
-        int[] count = new int[26];
-        for(int i = 0; i < str.length(); i++) {
-            count[str.charAt(i)-97]++;
-        }
-        return count;
     }
 }
