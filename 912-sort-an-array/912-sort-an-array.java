@@ -1,43 +1,52 @@
 class Solution {
-    // mergesort
-    public int[] sortArray(int[] nums) {
-        return split(nums, 0, nums.length-1);
+    public int[] sortArray(int[] nums)
+    {
+        mergesort(nums);
+        return nums;
     }
 
-    private int[] split(int[] nums, int left, int right) {
-        if(left == right) {
-            return new int[]{nums[left]};
-        }
-        else {
-            int mid = (left + right) / 2;
-            int[] leftSorted = split(nums, left, mid);
-            int[] rightSorted = split(nums, mid+1, right);
-            return merge(leftSorted, rightSorted);
+    private void mergesort(int[] nums) {
+        int len = 1;
+        int n = nums.length;
+        int i;
+
+        while(len < n) {
+            i = 0;
+            while(i < n) {
+                int l1 = i;
+                int r1 = i+len-1;
+                int l2 = i+len;
+                int r2 = i+len*2-1;
+                if(r1 >= n) break;
+                if(r2 >= n) r2 = n-1;
+                merge(nums, l1, r1, l2, r2);
+
+                i = i+len*2;
+            }
+            len = len * 2;
         }
     }
 
-    private int[] merge(int[] leftSorted, int[] rightSorted) {
-        int m = leftSorted.length;
-        int n = rightSorted.length;
-        int l = 0, r = 0;
-        int k = 0;
-        int[] tmp = new int[m+n];
-
-        while(l < m && r < n) {
-            if(leftSorted[l] < rightSorted[r]) {
-                tmp[k++] = leftSorted[l++];
+    private void merge(int[] nums, int l1, int r1, int l2, int r2) {
+        int[] tmp = new int[r2-l1+1];
+        int i = l1, j = l2, k = 0;
+        while(i <= r1 && j <= r2) {
+            if(nums[i] <= nums[j]) {
+                tmp[k++] = nums[i++];
             }
             else {
-                tmp[k++] = rightSorted[r++];
+                tmp[k++] = nums[j++];
             }
         }
-        while (l < m) {
-            tmp[k++] = leftSorted[l++];
+        while (i <= r1) {
+            tmp[k++] = nums[i++];
         }
-        while (r < n) {
-            tmp[k++] = rightSorted[r++];
+        while (j <= r2) {
+            tmp[k++] = nums[j++];
         }
 
-        return tmp;
+        for(int m = 0; m < tmp.length; m++) {
+            nums[l1 + m] = tmp[m];
+        }
     }
 }
