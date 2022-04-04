@@ -25,23 +25,17 @@ private void pushval(ListNode list, Deque<Integer> stack) {
 
         int digit = 0;
         int carry = 0;
-        int sum = 0;
-        while (!s1.isEmpty() && !s2.isEmpty()) {
-            sum = s1.pop() + s2.pop() + carry;
+        while (!s1.isEmpty() || !s2.isEmpty()) {
+            int sum = 0;
+            if (!s1.isEmpty()) {
+                sum += s1.pop();
+            }
+            if (!s2.isEmpty()) {
+                sum += s2.pop();
+            }
+            sum += carry;
             digit = sum%10;
             carry = sum/10;
-            n = new ListNode(digit, n);
-        }
-        while (!s1.isEmpty()) {
-            sum = s1.pop() + carry;
-            digit = sum % 10;
-            carry = sum / 10;
-            n = new ListNode(digit, n);
-        }
-        while (!s2.isEmpty()) {
-            sum = s2.pop() + carry;
-            digit = sum % 10;
-            carry = sum / 10;
             n = new ListNode(digit, n);
         }
         if(carry == 1) n = new ListNode(1, n);
