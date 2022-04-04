@@ -17,8 +17,8 @@ private void pushval(ListNode list, Deque<Integer> stack) {
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        Deque<Integer> s1 = new ArrayDeque<>();
-        Deque<Integer> s2 = new ArrayDeque<>();
+        Deque<Integer> s1 = new LinkedList<>();
+        Deque<Integer> s2 = new LinkedList<>();
         pushval(l1, s1);
         pushval(l2, s2);
         ListNode n = null;
