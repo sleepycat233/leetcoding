@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class AddTwoNumbersII {
     private int getLen(ListNode list) {
         int len = 0;
@@ -80,13 +82,48 @@ public class AddTwoNumbersII {
         return dummy.next;
     }
 
+    private void pushval(ListNode list, Deque<Integer> stack) {
+        while(list != null) {
+            stack.push(list.val);
+            list = list.next;
+        }
+    }
+
+    public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
+        Deque<Integer> s1 = new ArrayDeque<>();
+        Deque<Integer> s2 = new ArrayDeque<>();
+        pushval(l1, s1);
+        pushval(l2, s2);
+        ListNode n = null;
+
+        int digit = 0;
+        int carry = 0;
+        while (!s1.isEmpty() || !s2.isEmpty() || carry == 1) {
+            int sum = 0;
+            if (!s1.isEmpty()) {
+                sum += s1.pop();
+            }
+            if (!s2.isEmpty()) {
+                sum += s2.pop();
+            }
+            sum += carry;
+            digit = sum%10;
+            carry = sum/10;
+            n = new ListNode(digit, n);
+        }
+
+        return n;
+    }
+
+
+
     public static void main(String[] args) {
         AddTwoNumbersII sol = new AddTwoNumbersII();
         // ListNode l1 = LinkedListUtil.generateLinkedList("7,2,4,3");
         // ListNode l2 = LinkedListUtil.generateLinkedList("5,6,4");
         ListNode l1 = LinkedListUtil.generateLinkedList("9,3,3,3,4");
         ListNode l2 = LinkedListUtil.generateLinkedList("6,6,6,6");
-        ListNode res = sol.addTwoNumbers(l1, l2);
+        ListNode res = sol.addTwoNumbers2(l1, l2);
 
         res.print();
     }
