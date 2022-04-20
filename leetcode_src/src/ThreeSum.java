@@ -1,5 +1,3 @@
-import java.util.List;
-
 // https://leetcode.com/problems/3sum/
 
 import java.util.*;
@@ -15,11 +13,11 @@ public class ThreeSum {
         // time limit exceeded
 /*         for(int l = 0; l < n.length-2; l++) {
             for(int r = l+2; r < n.length; r++) {
-                for (int i = l + 1; i < r; i++) {
-                    if (n[i] + n[l] + n[r] == 0) {
+                for (int l = l + 1; l < r; l++) {
+                    if (n[l] + n[l] + n[r] == 0) {
                         ret.add(new ArrayList<>());
                         ret.get(ri).add(n[l]);
-                        ret.get(ri).add(n[i]);
+                        ret.get(ri).add(n[l]);
                         ret.get(ri).add(n[r]);
                         ri++;
                         break;
@@ -75,20 +73,49 @@ public class ThreeSum {
         return ret;
     }
 
+    public List<List<Integer>> threeSum2(int[] n) {
+        List<List<Integer>> res = new ArrayList<>();
+        Arrays.sort(n);
+        // System.out.println(Arrays.toString(n));
+
+        for(int l = 0; l < n.length-2; l++) {
+            if(l != 0 && n[l-1] == n[l]) {
+                continue;
+            }
+            int r = n.length - 1;
+            for(int m = l+1; m < r; m++) {
+                if(m != l+1 && n[m-1] == n[m]) {
+                    continue;
+                }
+
+                int target = -(n[l] + n[m]);
+                while(r > m && n[r] > target) r--;
+                if(m == r) break;
+
+                if(n[r] == target) {
+                    res.add(new ArrayList<>(Arrays.asList(n[l], n[m], n[r])));
+                }
+            }
+        }
+
+        return res;
+    }
+
     public static void main(String[] args) {
-        // int[] n = { -1, 0, 1, 2, -1, -4 };
+        int[] n = { -1, 0, 1, 2, -1, -4 };
         // int[] n = {1, 2, -2, -1};
         // int[] n = {-2,-1,1,2};
         // int[] n = {-2,1,2};
         // int[] n = {-2, 0, 1, 1, 2};
-        int[] n = {-2, 0, 1, 3};
+        // int[] n = {-2, 0, 1, 3};
         // int[] n = {-4, 2, 4};
-        // int[] n = {0,0,0,0};
+        // int[] n = {0,0,0,0,0};
         // int[] n = {};
         // int[] n = {-1, 0, 1, 0};
         ThreeSum sol = new ThreeSum();
 
         System.out.println(sol.threeSum(n));
+        System.out.println(sol.threeSum2(n));
 
     }
 }

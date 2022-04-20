@@ -19,6 +19,7 @@ class TreeNode {
     }
     void printByLayer()
     {
+        StringBuilder sb = new StringBuilder();
         Deque<TreeNode> q = new LinkedList<>();
         q.add(this);
 
@@ -28,14 +29,14 @@ class TreeNode {
                 break;
 
             while (nodeCount-- > 0) {
-                TreeNode node = q.getFirst();
-                if (node.left != null)
-                    q.add(node.left);
-                if (node.right != null)
-                    q.add(node.right);
-
+                TreeNode node = q.removeFirst();
+                if(node == null) {
+                    System.out.print("N ");
+                    continue;
+                }
+                q.add(node.left);
+                q.add(node.right);
                 System.out.format("%d ", node.val);
-                q.removeFirst();
             }
             System.out.println();
         }
