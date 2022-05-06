@@ -1,9 +1,30 @@
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class UniqueBinarySearchTrees {
-
-    // formula 
+    // recursion
     public int numTrees(int n) {
+        int[] sequence = IntStream.range(1, n+1).toArray();
+        System.out.println(Arrays.toString(sequence));
+
+        return getNumOfSubtree(sequence, 0, n-1);
+    }
+
+    private int getNumOfSubtree(int[] sequence, int left, int right) {
+        if(left > right) return 0;
+        else if(left == right) return 1;
+
+        int subtreeCount = 0;
+        for (int i = left; i <= right; i++) {
+            int leftCount = getNumOfSubtree(sequence, left, i-1);
+            int rightCount = getNumOfSubtree(sequence, i+1, right);
+            subtreeCount += leftCount + rightCount;
+        }
+        return subtreeCount;
+    }
+
+    // formula
+    public int numTrees2(int n) {
         if(n == 1) return 1;
 
         double ans = 1;
@@ -22,15 +43,10 @@ public class UniqueBinarySearchTrees {
 
     public static void main(String[] args) {
         UniqueBinarySearchTrees sol = new UniqueBinarySearchTrees();
-        int[] storedRes = new int[19];
         for(int n = 1; n <= 19; n++) {
-            int ans = sol.numTrees(n);
-            System.out.println(n + ": " + ans);
-            storedRes[n-1] = ans;
+            System.out.println(n + ": " + sol.numTrees(n));
         }
 
-        System.out.println(Arrays.toString(storedRes));
-
-        //    System.out.println(sol.numTrees(5));
-        }
+        // System.out.println(sol.numTrees(3));
+    }
 }
