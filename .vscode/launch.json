@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch AnonymousClass",
+            "request": "launch",
+            "mainClass": "AnonymousClass",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
+            "name": "Launch Combination",
+            "request": "launch",
+            "mainClass": "Combination",
+            "projectName": "leetcoding_d1e0cf76"
+        },
+        {
+            "type": "java",
             "name": "Launch LongestPalindrome",
             "request": "launch",
             "mainClass": "LongestPalindrome",

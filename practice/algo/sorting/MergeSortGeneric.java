@@ -1,3 +1,5 @@
+package algo.sorting;
+
 import java.util.*;
 
 public class MergeSortGeneric<T> {

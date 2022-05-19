@@ -1,4 +1,4 @@
-package practice;
+
 
 public class BinaryExponentiation {
     public static long pow(long b, long n) {
