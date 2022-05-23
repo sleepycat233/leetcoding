@@ -1,4 +1,4 @@
-package practice.dp;
+package dp;
 
 import java.util.*;
 

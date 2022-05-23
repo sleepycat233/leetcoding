@@ -1,5 +1,3 @@
-package practice;
-
 public class MatrixMultiplication
 {
     private static void print_matrix(int[][] m) {

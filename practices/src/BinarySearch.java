@@ -1,5 +1,3 @@
-package practice;
-
 public class BinarySearch {
     public int bSearch(int[] nums, int n) {
         int l = 0, r = nums.length-1;

@@ -1,5 +1,3 @@
-package practice;
-
 import javax.xml.crypto.Data;
 
 public class NestedClass {

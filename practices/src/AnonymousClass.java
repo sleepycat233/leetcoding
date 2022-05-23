@@ -1,5 +1,3 @@
-package practice;
-
 public class AnonymousClass {
     public interface Greet {
         void greetWorld();
