@@ -15,35 +15,35 @@
  */
 class Solution {
     public List<TreeNode> generateTrees(int n) {
-        return getSubtree(0, n - 1);
+        return getSubTree(0, n-1);
     }
-
-    private List<TreeNode> getSubtree(int left, int right) {
-        LinkedList<TreeNode> allTrees = new LinkedList<>();
-
-        if (left > right) {
+    
+    private List<TreeNode> getSubTree(int left, int right) {
+        List<TreeNode> allTrees = new ArrayList<>();
+        if(left > right) {
             allTrees.add(null);
             return allTrees;
         }
-        else if (left == right) {
-            TreeNode n = new TreeNode(left+1);
-            allTrees.add(n);
+        else if(left == right) {
+            allTrees.add(new TreeNode(left+1));
             return allTrees;
         }
-
-        for (int i = left; i <= right; i++) {
-            List<TreeNode> leftTrees = getSubtree(left, i-1);
-            List<TreeNode> rightTrees = getSubtree(i+1, right);
-
-            for(TreeNode l : leftTrees) {
-                for(TreeNode r : rightTrees) {
+        
+        for(int i = left; i <= right; i++) {
+            List<TreeNode> leftTrees = getSubTree(left, i-1);
+            List<TreeNode> rightTrees = getSubTree(i+1, right);
+            
+            for(TreeNode lt : leftTrees) {
+                for(TreeNode rt : rightTrees) {
                     TreeNode root = new TreeNode(i+1);
-                    root.left = l;
-                    root.right = r;
+                    root.left = lt;
+                    root.right = rt;
                     allTrees.add(root);
                 }
             }
         }
+            
         return allTrees;
+            
     }
 }
