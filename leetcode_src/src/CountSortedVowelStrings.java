@@ -45,6 +45,7 @@ public class CountSortedVowelStrings {
         }
     }
 
+    // backtracing
     public int countVowelStrings3(int n) {
         return countv(n, 1);
     }
@@ -60,9 +61,27 @@ public class CountSortedVowelStrings {
         }
     }
 
+    // tablution
+    public int countVowelStrings4(int n) {
+        int[][] t = new int[n][5];
+        for(int j = 0; j < 5; j++) {
+            t[0][j] = j+1;
+        }
+
+        for(int i = 1; i < n; i++) {
+            t[i][0] = 1;
+            for(int j = 1; j < 5; j++) {
+                t[i][j] = t[i-1][j] + t[i][j-1];
+            }
+        }
+
+        return t[t.length-1][t[0].length-1];
+    }
+
 
     public static void main(String[] args) {
         CountSortedVowelStrings sol = new CountSortedVowelStrings();
-        System.out.println(sol.countVowelStrings3(2));
+        System.out.println(sol.countVowelStrings(2));
+        System.out.println(sol.countVowelStrings4(2));
     }
 }

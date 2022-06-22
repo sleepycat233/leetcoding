@@ -11,7 +11,8 @@ public class test {
         else return count_tailrecursion(str.substring(1), len+1);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] arg) {
+
         System.out.println(test.count("1234"));
         System.out.println(test.count_tailrecursion("1234", 0));
     }

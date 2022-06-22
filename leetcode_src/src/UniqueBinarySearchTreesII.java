@@ -25,7 +25,7 @@ public class UniqueBinarySearchTreesII {
 
             for(TreeNode l : leftTrees) {
                 for(TreeNode r : rightTrees) {
-                    TreeNode root = new TreeNode(i+1);
+                    TreeNode root = new TreeNode(i+1);  //* important
                     root.left = l;
                     root.right = r;
                     allTrees.add(root);
