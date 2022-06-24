@@ -1,7 +1,5 @@
 // https://leetcode.com/problems/linked-list-cycle-ii/
 
-import java.util.*;
-
 /* class ListNode {
     int val;
     ListNode next;

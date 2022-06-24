@@ -2,16 +2,16 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class ConvertBSTtoSortedDLL {
-    public Node treeToDoublyList(Node root) {
-        Deque<Node> queue = new ArrayDeque<>();
+    public TreeNode treeToDoublyList(TreeNode root) {
+        Deque<TreeNode> queue = new ArrayDeque<>();
         inorder(root, queue);
 
-        Node first = (!queue.isEmpty()) ? queue.poll() : null;
-        Node last = null;
-        Node prev = first;
+        TreeNode first = (!queue.isEmpty()) ? queue.poll() : null;
+        TreeNode last = null;
+        TreeNode prev = first;
 
         while(!queue.isEmpty()) {
-            Node curr = queue.poll();
+            TreeNode curr = queue.poll();
             curr.left = prev;
             prev.right = curr;
             prev = curr;
@@ -25,7 +25,7 @@ public class ConvertBSTtoSortedDLL {
         return first;
     }
 
-    private void inorder(Node root, Deque<Node> queue) {
+    private void inorder(TreeNode root, Deque<TreeNode> queue) {
         if(root != null) {
             inorder(root.left, queue);
             queue.add(root);
@@ -35,7 +35,7 @@ public class ConvertBSTtoSortedDLL {
 
     public static void main(String[] args) {
         ConvertBSTtoSortedDLL sol = new ConvertBSTtoSortedDLL();
-        Node tree = BinaryTreeUtil.generateBinaryTree("4,2,5,1,3");
+        TreeNode tree = BinaryTreeUtil.generateBinaryTree("4,2,5,1,3");
         tree = sol.treeToDoublyList(tree);
         System.out.println();
     }
