@@ -32,7 +32,7 @@ public class MaximalRectangle {
         while(!stack.isEmpty()) {
             int j = stack.pop();
             int k = (stack.isEmpty()) ? -1 : stack.peek();
-            int currArea = height[j] * (-1 - k - 1);
+            int currArea = height[j] * (height.length - k - 1);
             maxArea = Math.max(maxArea, currArea);
         }
 
