@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class MaxSubArray {
     public int maxSubArray(int[] nums) {
         int maxsum = Integer.MIN_VALUE, currsum = 0;

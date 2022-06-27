@@ -24,7 +24,7 @@ public class ex1 {
 
     ListNode head;
     public ex1() {
-        ListNode pn = null, nn = null, l1, l2;
+        ListNode pn = null, nn = null;
         for (int i = 5; i > 0; i--) {
             nn = new ListNode(i, pn);
             pn = nn;

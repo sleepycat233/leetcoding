@@ -19,7 +19,6 @@ class TreeNode {
     }
     void printByLayer()
     {
-        StringBuilder sb = new StringBuilder();
         Deque<TreeNode> q = new LinkedList<>();
         q.add(this);
 
