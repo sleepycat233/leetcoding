@@ -34,7 +34,7 @@ public class TreeInorderTraversal {
 
     public static void main(String[] args) {
         TreeInorderTraversal sol = new TreeInorderTraversal();
-        TreeNode tree1 = TreePreorderTraversal.generateCompleteTree(3);
+        TreeNode tree1 = BinaryTreeUtil.generatePerfectTree(3);
         tree1.printByLayer();
         System.out.println(sol.inorderTraversal(tree1));
         System.out.println(sol.inorderTraversal2(tree1));
