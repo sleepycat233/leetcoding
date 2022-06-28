@@ -1,7 +1,6 @@
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.stream.Collectors;
 
 public class KthLargestElementInAnArray {
     //maxheap
@@ -42,9 +41,19 @@ public class KthLargestElementInAnArray {
         arr[j] = temp;
     }
 
+    // min heap
+    public int findKthLargest_minheap(int[] nums, int k) {
+
+        for(int i = 0; i < k; i++) {
+
+        }
+
+        return -1;
+    }
+
     // quick sort - O(n)
     public int findKthLargest1(int[] nums, int k) {
-        quickSelect(nums, k);
+        quickSelect(nums, k, 0, nums.length);
         return nums[k - 1];
     }
 
@@ -57,7 +66,7 @@ public class KthLargestElementInAnArray {
     }
 
     private int partition(int[] nums, int l, int r) {
-
+        return -1;
     }
 
 
