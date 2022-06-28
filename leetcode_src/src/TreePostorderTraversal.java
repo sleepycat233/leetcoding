@@ -29,7 +29,7 @@ public class TreePostorderTraversal {
     public static void main(String[] args)
     {
         TreePostorderTraversal sol = new TreePostorderTraversal();
-        TreeNode tree1 = TreePreorderTraversal.generateCompleteTree(3);
+        TreeNode tree1 = BinaryTreeUtil.generatePerfectTree(3);
         tree1.printByLayer();
         System.out.println(sol.postorderTraversal(tree1));
         System.out.println(sol.postorderTraversal(null));

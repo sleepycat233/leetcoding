@@ -60,6 +60,20 @@ class Node {
 };
 
 public class BinaryTreeUtil {
+    private static int count = 0;
+
+    static private TreeNode generate(int height) {
+        if (height == 1) {
+            return new TreeNode(++count);
+        } else {
+            return new TreeNode(++count, generate(height - 1), generate(height - 1));
+        }
+    }
+
+    static public TreeNode generatePerfectTree(int height) {
+        count = 0;
+        return generate(height);
+    }
 
     static private List<Integer> strToList(String s) {
         String[] values = s.split(",");

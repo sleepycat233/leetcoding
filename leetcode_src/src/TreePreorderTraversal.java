@@ -1,23 +1,11 @@
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.List;
 
 public class TreePreorderTraversal {
-    private static int count = 0;
-
-    static public TreeNode generate(int height) {
-        if(height == 1) {
-            return new TreeNode(++count);
-        }
-        else {
-            return new TreeNode(++count, generate(height-1), generate(height-1));
-        }
-    }
-
-    static public TreeNode generateCompleteTree(int height) {
-        count = 0;
-        return generate(height);
-    }
-
-    public List<Integer>preorderTraversal(TreeNode root)
+    public List<Integer> preorderTraversal(TreeNode root)
     {
         List<Integer> res = new ArrayList<>();
         Deque<TreeNode> s = new LinkedList<>();
@@ -49,7 +37,7 @@ public class TreePreorderTraversal {
     //iterative
     public List<Integer> preorderTraversal3(TreeNode root) {
         List<Integer> res = new ArrayList<>();
-        Deque<TreeNode> s = new LinkedList<>();
+        Deque<TreeNode> s = new ArrayDeque<>();
         if (root == null) return res;
 
         while(!s.isEmpty() || root != null) {
@@ -67,7 +55,7 @@ public class TreePreorderTraversal {
 
     public static void main(String[] args) {
         TreePreorderTraversal obj = new TreePreorderTraversal();
-        TreeNode tree1 = TreePreorderTraversal.generateCompleteTree(3);
+        TreeNode tree1 = BinaryTreeUtil.generatePerfectTree(3);
         tree1.printByLayer();
         System.out.println(obj.preorderTraversal(tree1));
         System.out.println(obj.preorderTraversal2(tree1));
