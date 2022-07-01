@@ -9,32 +9,28 @@ public class LetterCombinationsOfAPhoneNumber {
 
     public List<String> letterCombinations(String digits) {
         List<String> res = new ArrayList<>();
-        List<String> letters = new ArrayList<>();
         if(digits.isEmpty()) return res;
 
-        for(int i = 0; i < digits.length(); i++) {
-            letters.add(mapOfLetters.get(digits.charAt(i)));
-        }
-        combine(letters, 0, res, new char[digits.length()], 0);
+        combine(digits, res, new char[digits.length()], 0);
         return res;
     }
 
-    private void combine(List<String> letters, int n, List<String> res, char[] run, int size) {
-        if(size == letters.size()) {
+    private void combine(String digits, List<String> res, char[] run, int index) {
+        if(index == digits.length()) {
             res.add(new String(run));
         }
         else {
-            String group = letters.get(n);
+            String group = mapOfLetters.get(digits.charAt(index));
             for(int i = 0; i < group.length(); i++) {
-                run[size] = group.charAt(i);
-                combine(letters, n+1, res, run, size+1);
+                run[index] = group.charAt(i);
+                combine(digits, res, run, index+1);
             }
         }
     }
 
     public static void main(String[] args) {
         LetterCombinationsOfAPhoneNumber sol = new LetterCombinationsOfAPhoneNumber();
-        System.out.println(sol.letterCombinations("234"));
-        System.out.println(sol.letterCombinations("234").size());
+        System.out.println(sol.letterCombinations("23"));
+        System.out.println(sol.letterCombinations("23").size());
     }
 }
