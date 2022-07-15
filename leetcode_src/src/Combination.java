@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class Combination {
     public static int compute(int n, int r) {
@@ -82,6 +81,43 @@ public class Combination {
         return combinations;
     }
 
+
+    public <E> List<String> generateCombinations_Generic(E[] elements, int[] quantity) {
+        List<String> res = new ArrayList<>();
+        if (elements.length != quantity.length)
+            return res;
+
+        int nOfSlot = 0;
+        for (int q : quantity)
+            nOfSlot += q;
+
+        helper(res, (E[]) new Object[nOfSlot], 0, new int[quantity.length], elements, quantity);
+
+        return res;
+    }
+
+    private <E> void helper(List<String> res, E[] run, int ri, int[] runQty, E[] elements, int[] quantity) {
+        if (ri == run.length) {
+            StringBuilder sb = new StringBuilder();
+            for (E e : run) {
+                sb.append(e);
+            }
+            res.add(sb.toString());
+        } else {
+            for (int i = 0; i < elements.length; i++) {
+                runQty[i]++;
+                if (runQty[i] > quantity[i]) {
+                    runQty[i]--;
+                    continue;
+                }
+
+                run[ri] = elements[i];
+                helper(res, run, ri + 1, runQty, elements, quantity);
+                runQty[i]--;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         // System.out.println(Combination.compute(10, 8));
         // List<int[]> res = Combination.generateCombinations(5, 2);
@@ -91,5 +127,14 @@ public class Combination {
             System.out.println(Arrays.toString(arr));
         }
         System.out.println(res.size());
+
+
+        Combination sol = new Combination();
+
+        // Character[] elements = new Character[]{'(', ')'};
+        Integer[] elements = new Integer[]{0, 1};
+        List<String> res2 = sol.generateCombinations_Generic(elements, new int[]{3, 3});
+
+        System.out.println(res2);
     }
 }
