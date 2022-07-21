@@ -10,26 +10,41 @@
  */
 class Solution {
     public ListNode reverseBetween(ListNode head, int left, int right) {
-        ListNode dummyNode = new ListNode(-1, head);
-        ListNode pre = dummyNode;
+        ListNode dummy = new ListNode(-1, head);
+        ListNode tl = dummy;
+        ListNode tm = dummy;
+        ListNode hr = null;
+        ListNode hm = null;
 
-        for(int i = 0; i < left-1; i++) {
-            pre = pre.next;
+        for(int i = 1; i < left; i++) {
+            tl = tl.next;
+            tm = tm.next;
         }
 
-        ListNode leftNode = pre.next;
-        ListNode curr = pre.next;
-        ListNode tmp = null;
-        for(int j = 0; j < right - left + 1; j++) {
-            ListNode next = curr.next;
-            curr.next = tmp;
-            tmp = curr;
-            curr = next;
+        for(int j = left-1; j < right; j++) {
+            tm = tm.next;
         }
+        hr = tm.next;
+        hm = tl.next;
 
-        pre.next = tmp;
-        leftNode.next = curr;
+        tl.next = null;
+        tm.next = null;
 
-        return dummyNode.next;
+        reverseList_recursive(hm);
+        tl.next = tm;
+        hm.next = hr;
+
+        return dummy.next;
+    
+    }
+
+    public ListNode reverseList_recursive(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode p = reverseList_recursive(head.next);
+        head.next.next = head; // * niubi
+        head.next = null;
+        return p;
     }
 }
