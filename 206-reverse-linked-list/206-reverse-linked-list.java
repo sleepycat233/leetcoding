@@ -9,19 +9,13 @@
  * }
  */
 class Solution {
-    private ListNode listhead = null;
     public ListNode reverseList(ListNode head) {
-        helper(null, head);
-        return listhead;
-    }
-
-    private void helper(ListNode prev, ListNode curr) {
-        if(curr == null) {
-            listhead = prev;
+        if(head == null || head.next == null) {
+            return head;
         }
-        else {
-            helper(curr, curr.next);
-            curr.next = prev;
-        }
+        ListNode p = reverseList(head.next);
+        head.next.next = head;  //* niubi
+        head.next = null;
+        return p;
     }
 }
