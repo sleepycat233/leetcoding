@@ -10,41 +10,31 @@
  */
 class Solution {
     public ListNode reverseBetween(ListNode head, int left, int right) {
-        ListNode dummy = new ListNode(-1, head);
-        ListNode tl = dummy;
-        ListNode tm = dummy;
-        ListNode hr = null;
-        ListNode hm = null;
 
-        for(int i = 1; i < left; i++) {
-            tl = tl.next;
-            tm = tm.next;
+        Deque<ListNode> stack = new ArrayDeque<>();
+
+        ListNode leftNode = head;
+        ListNode rightNode = head;
+
+        for(int i = 0; i < right; i++) {
+            if(i == left-1) leftNode = rightNode;
+            stack.push(rightNode);
+            rightNode = rightNode.next;
         }
 
-        for(int j = left-1; j < right; j++) {
-            tm = tm.next;
+        rightNode = stack.pop();
+        while(true) {
+            if(leftNode == rightNode || rightNode.next == leftNode) break;
+
+            int t = leftNode.val;
+            leftNode.val = rightNode.val;
+            rightNode.val = t;
+
+            rightNode = stack.pop();
+            leftNode = leftNode.next;
         }
-        hr = tm.next;
-        hm = tl.next;
 
-        tl.next = null;
-        tm.next = null;
-
-        reverseList_recursive(hm);
-        tl.next = tm;
-        hm.next = hr;
-
-        return dummy.next;
+        return head;
     
-    }
-
-    public ListNode reverseList_recursive(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode p = reverseList_recursive(head.next);
-        head.next.next = head; // * niubi
-        head.next = null;
-        return p;
     }
 }
