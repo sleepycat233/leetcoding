@@ -1,19 +1,40 @@
 public class test {
-    // non-tail recursion
-    public static int count(String str) {
-        if(str.isEmpty()) return 0;
-        else return 1 + count(str.substring(1));
+    private boolean stop;
+    private ListNode left;
+
+    public void recurseAndReverse(ListNode right, int m, int n) {
+        if (n == 1) {
+            return;
+        }
+
+        right = right.next;
+
+        if (m > 1) {
+            this.left = this.left.next;
+        }
+
+        this.recurseAndReverse(right, m - 1, n - 1);
+
+        if (this.left == right || right.next == this.left) {
+            this.stop = true;
+        }
+
+        if (!this.stop) {
+            int t = this.left.val;
+            this.left.val = right.val;
+            right.val = t;
+
+            this.left = this.left.next;
+        }
     }
 
-    // tail recursion
-    public static int count_tailrecursion(String str, int len) {
-        if(str.isEmpty()) return len;
-        else return count_tailrecursion(str.substring(1), len+1);
+    public ListNode reverseBetween(ListNode head, int m, int n) {
+        this.left = head;
+        this.stop = false;
+        this.recurseAndReverse(head, m, n);
+        return head;
     }
-
     public static void main(String[] arg) {
 
-        System.out.println(test.count("1234"));
-        System.out.println(test.count_tailrecursion("1234", 0));
     }
 }

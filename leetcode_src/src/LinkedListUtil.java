@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class ListNode {
     int val;
     ListNode next;
@@ -16,7 +18,7 @@ class ListNode {
 
 public class LinkedListUtil {
     static public ListNode generateLinkedList(String str) {
-        String[] nums = str.split("\\D");   //split by non-digit
+        String[] nums = str.split("\\D+");   //split by non-digit
         // System.out.println(Arrays.toString(nums));
         ListNode nn = null;
         for(int i = nums.length; i-- > 0; ) {
@@ -26,5 +28,9 @@ public class LinkedListUtil {
         }
 
         return nn;
+    }
+
+    public static void main(String[] args) {
+        LinkedListUtil.generateLinkedList("1, 2 3");
     }
 }
