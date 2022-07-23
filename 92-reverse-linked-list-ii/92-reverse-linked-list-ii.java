@@ -10,26 +10,31 @@
  */
 class Solution {
     public ListNode reverseBetween(ListNode head, int left, int right) {
-        ListNode dummyNode = new ListNode(-1, head);
-        ListNode pre = dummyNode;
 
-        for(int i = 0; i < left-1; i++) {
-            pre = pre.next;
+        Deque<ListNode> stack = new ArrayDeque<>();
+
+        ListNode leftNode = head;
+        ListNode rightNode = head;
+
+        for(int i = 0; i < right; i++) {
+            if(i == left-1) leftNode = rightNode;
+            stack.push(rightNode);
+            rightNode = rightNode.next;
         }
 
-        ListNode leftNode = pre.next;
-        ListNode curr = pre.next;
-        ListNode tmp = null;
-        for(int j = 0; j < right - left + 1; j++) {
-            ListNode next = curr.next;
-            curr.next = tmp;
-            tmp = curr;
-            curr = next;
+        rightNode = stack.pop();
+        while(true) {
+            if(leftNode == rightNode || rightNode.next == leftNode) break;
+
+            int t = leftNode.val;
+            leftNode.val = rightNode.val;
+            rightNode.val = t;
+
+            rightNode = stack.pop();
+            leftNode = leftNode.next;
         }
 
-        pre.next = tmp;
-        leftNode.next = curr;
-
-        return dummyNode.next;
+        return head;
+    
     }
 }
