@@ -23,3 +23,4 @@ def generateLinkedList(s: str) -> Optional[ListNode]:
         nn = pn
 
     return nn
+
