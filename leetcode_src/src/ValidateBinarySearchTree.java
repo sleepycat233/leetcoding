@@ -1,7 +1,9 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.List;
 
 public class ValidateBinarySearchTree {
-    
 
     //wrong.
 /*     public boolean isValidBST(TreeNode root) {
@@ -75,20 +77,38 @@ public class ValidateBinarySearchTree {
         if (root == null) {
             return true;
         }
-        // else if ((root.left != null && root.left.val > root.val)
-        //         || (root.right != null && root.right.val < root.val)) {
-        //     return false;
-        // }
         else if (root.val >= upper || root.val <= lower) {
             return false;
         }
-
-        // if (verify(root.left, lower, root.val) == false
-        //     || verify(root.right, root.val, upper) == false) {
-        //     return false;
-        // }
-        // return true; //* rewrite to
         return verify(root.left, lower, root.val) && verify(root.right, root.val, upper);
+    }
+
+    Deque<TreeNode> stack3 = new LinkedList<>();
+    Deque<Integer> lower = new LinkedList<>();
+    Deque<Integer> upper = new LinkedList<>();
+    public boolean isValidBST3(TreeNode root) {
+        Integer low = null, up = null;
+        updateNode(root, low, up);
+        while(!stack3.isEmpty()) {
+            root = stack3.pop();
+            low = lower.pop();
+            up = upper.pop();
+
+            if(root == null) continue;
+            if((low != null && root.val <= low)
+             || up != null && root.val >= up) {
+                return false;
+            }
+            updateNode(root.right, root.val, up);
+            updateNode(root.left, low, root.val);
+        }
+        return true;
+    }
+
+    private void updateNode(TreeNode node, Integer low, Integer up) {
+        stack3.push(node);
+        lower.push(low);
+        upper.push(up);
     }
 
     public static void main(String[] args) {
@@ -104,5 +124,8 @@ public class ValidateBinarySearchTree {
 
         System.out.println(sol.isValidBST2(t1));
         System.out.println(sol.isValidBST2(t2));
+
+        System.out.println(sol.isValidBST3(t1));
+        System.out.println(sol.isValidBST3(t2));
     }
 }
