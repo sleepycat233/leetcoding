@@ -12,4 +12,6 @@ class Solution:
             else:
                 helper(node.right)
                 helper(node.left)
-                
+
+    def flatten2(self, root: Optional[TreeNode]) -> None:
+        
