@@ -6,17 +6,18 @@
 #         self.right = right
 class Solution:
     def flatten(self, root: Optional[TreeNode]) -> None:
-        """
-        Do not return anything, modify root in-place instead.
-        """
-        node = root
-        while node:
-            if node.left:
-                predecessor = node.left
-                while predecessor.right:
-                    predecessor = predecessor.right
-                predecessor.right = node.right
-                node.right = node.left
-                node.left = None
-            node = node.right
+        stack = []
+        curr = root
+        prev = None
+
+        while curr or stack:
+            while curr:
+                if prev:
+                    prev.right = curr
+                    prev.left = None
+                if curr.right:
+                    stack.append(curr.right)
+                prev = curr
+                curr = curr.left
+            curr = stack.pop() if stack else None
         
