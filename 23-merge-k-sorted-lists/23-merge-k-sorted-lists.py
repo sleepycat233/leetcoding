@@ -3,36 +3,30 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+from queue import PriorityQueue
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        class Wrapper():
+            def __init__(self, node):
+                self.node = node
+            def __lt__(self, other):
+                return self.node.val < other.node.val
+
+        head = tail = ListNode(-1)
+        pq = PriorityQueue()
+
         if not lists: return None
-        def mergeTwoLists(left, right):
-            head = ListNode(0)
-            tail = head
-            while left and right:
-                if left.val <= right.val:
-                    tail.next = left
-                    left = left.next
-                else:
-                    tail.next = right
-                    right = right.next
-                tail = tail.next
+        for l in lists:
+            if l:
+                pq.put(Wrapper(l))
 
-            if left:
-                tail.next = left
-            if right:
-                tail.next = right
+        while not pq.empty():
+            node = pq.get().node
+            tail.next = node
+            # tail.next = ListNode(val)
+            tail = tail.next
 
-            return head.next
+            if node := node.next:
+                pq.put(Wrapper(node))
 
-        def helper(lists, l, r):
-            if l == r:
-                return lists[l]
-            else:
-                mid = int((l+r)/2)
-                left = helper(lists, l, mid)
-                right = helper(lists, mid+1, r)
-                return mergeTwoLists(left, right)
-
-        return helper(lists, 0, len(lists)-1)
-        
+        return head.next
