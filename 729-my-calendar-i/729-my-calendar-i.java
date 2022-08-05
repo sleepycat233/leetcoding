@@ -1,17 +1,27 @@
 class MyCalendar {
-    List<int[]> bookings;
+
+    TreeSet<int[]> booked;
+
     public MyCalendar() {
-        bookings = new ArrayList<>();
+        booked = new TreeSet<>((a, b) -> a[0] - b[0]);
     }
-    
+
     public boolean book(int start, int end) {
-        int[] interval = new int[]{start, end};
-        for (int[] book : bookings)
-            if(end > book[0] && start < book[1])
-                return false;
-        bookings.add(interval);
-        return true;
+        int[] meeting = new int[]{start, end};
+        if(booked.isEmpty()) {
+            booked.add(meeting);
+            return true;
+        }
+        int[] tmp = new int[]{end, 0};
+        int[] arr = booked.ceiling(tmp);
+        int[] prev = (arr == null) ? booked.last() : booked.lower(tmp);
+        if(prev == null || start >= prev[1]) {
+            booked.add(meeting);
+            return true;
+        }
+        return false;
     }
+
 }
 
 /**
