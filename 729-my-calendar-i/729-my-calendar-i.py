@@ -1,13 +1,13 @@
 class MyCalendar:
 
     def __init__(self):
-        self.slot = []
+        self.booked = []
 
     def book(self, start: int, end: int) -> bool:
-        i = bisect.bisect_right(self.slot, start)
-        if i & 1 or (i < len(self.slot) and self.slot[i] < end):
+        i = bisect.bisect_right(self.booked, start)
+        if i & 1 or (i < len(self.booked) and self.booked[i] < end):
             return False
-        self.slot[i:i] = [start, end]
+        self.booked[i:i] = [start, end]
         return True
 
 # Your MyCalendar object will be instantiated and called as such:
