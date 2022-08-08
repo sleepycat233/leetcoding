@@ -1,13 +1,23 @@
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
-        m = len(nums)
-        t = [1] * m
-        
-        for end in range(1, m):
-            for start in range(end):
-                if nums[start] < nums[end]:
-                    t[end] = max(t[end],  t[start]+1)
-        
-        return max(t)
+        sub = [nums[0]]
 
-        
+        for n in nums[1:]:
+            if n > sub[-1]:
+                sub.append(n)
+            else:
+                l = 0
+                r = len(sub)-1
+                while l < r:
+                    mid = int((l+r)/2)
+                    if n == sub[mid]:
+                        r = mid
+                        break
+                    elif n < sub[mid]:
+                        r = mid
+                    else:
+                        l = mid+1
+
+                sub[r] = n
+
+        return len(sub)
