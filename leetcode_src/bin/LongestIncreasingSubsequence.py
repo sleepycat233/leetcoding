@@ -56,7 +56,7 @@ def bs2(a, x):
     return r
 
 if __name__ == '__main__':
-    a = [0, 2, 2, 2, 3, 5]
+    a = [0, 3, 5]
     print(bs2(a, 2))
     print(bisect.bisect_left(a, 2))
     print(bisect.bisect_right(a, 2))

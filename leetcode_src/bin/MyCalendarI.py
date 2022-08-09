@@ -7,7 +7,7 @@ class MyCalendar:
 
     def book(self, start: int, end: int) -> bool:
         i = bisect.bisect_right(self.booked, start)
-        if i % 1 or (i < len(self.booked) and self.booked[i] < end):
+        if i & 1 or (i < len(self.booked) and self.booked[i] < end):
             return False
         self.booked[i:i] = [start, end]
         return True

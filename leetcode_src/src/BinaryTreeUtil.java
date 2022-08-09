@@ -17,6 +17,11 @@ class TreeNode {
         this.left = left;
         this.right = right;
     }
+
+    public String toString() {
+        return String.valueOf(this.val);
+    }
+
     void printByLayer()
     {
         Deque<TreeNode> q = new LinkedList<>();
