@@ -31,7 +31,7 @@ def generateBinaryTree(s: str) -> TreeNode:
         if v >= len(values) or values[v] == 'null':
             return None
         else:
-            node = TreeNode(values[v])
+            node = TreeNode(int(values[v]))
             if v == 0:
                 root = node
 
