@@ -12,11 +12,12 @@ public class PacificAtlanticWaterFlow {
         Set<int[]> pacific = new HashSet<>();
         Set<int[]> atlantic = new HashSet<>();
 
-        for(int row = 0; row < m; row++) {
-            for(int col = 0; col < n; col++) {
-                dfs_ocean(heights, new int[]{row, col}, row, col, pacific, atlantic);
-            }
-        }
+        // for(int row = 0; row < m; row++) {
+        //     for(int col = 0; col < n; col++) {
+        //         dfs_ocean(heights, new int[]{row, col}, row, col, pacific, atlantic);
+        //     }
+        // }
+        dfs_ocean(heights, new int[]{1, 3}, 1, 3, pacific, atlantic);
 
         pacific.retainAll(atlantic);
         List<List<Integer>> res = new ArrayList<>();
@@ -30,25 +31,25 @@ public class PacificAtlanticWaterFlow {
     }
 
     private void dfs_ocean(int[][] heights, int[] peak, int row, int col, Set<int[]> pacific, Set<int[]> atlantic) {
-        if(row <= 0 || col <= 0) {
+        if(row == 0 || col == 0) {
             pacific.add(peak);
+            return;
         }
-        if(row >= m-1 || col >= n-1) {
+        if(row == m || col == n) {
             atlantic.add(peak);
+            return;
         }
-        if(!pacific.contains(peak) && !atlantic.contains(peak)) {
-            if(!pacific.contains(peak) && heights[row][col] > heights[row][col+1]) {
+        if(!atlantic.contains(peak) && col+1 < n && heights[row][col] >= heights[row][col+1]) {
                 dfs_ocean(heights, peak, row, col+1, pacific, atlantic);
-            }
-            if (!pacific.contains(peak) && heights[row][col] > heights[row-1][col]) {
+        }
+        if (!atlantic.contains(peak) && row-1 > 0 && heights[row][col] >= heights[row-1][col]) {
                 dfs_ocean(heights, peak, row-1, col, pacific, atlantic);
-            }
-            if (!atlantic.contains(peak) && heights[row][col] > heights[row][col - 1]) {
-                dfs_ocean(heights, peak, row, col - 1, pacific, atlantic);
-            }
-            if (!atlantic.contains(peak) && heights[row][col] > heights[row+1][col]) {
-                dfs_ocean(heights, peak, row+1, col, pacific, atlantic);
-            }
+        }
+        if (!pacific.contains(peak) && col-1 > 0 && heights[row][col] >= heights[row][col - 1]) {
+            dfs_ocean(heights, peak, row, col - 1, pacific, atlantic);
+        }
+        if (!pacific.contains(peak) && row+1 < m && heights[row][col] >= heights[row+1][col]) {
+            dfs_ocean(heights, peak, row+1, col, pacific, atlantic);
         }
     }
 
