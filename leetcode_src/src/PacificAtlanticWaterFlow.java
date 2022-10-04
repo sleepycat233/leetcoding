@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 public class PacificAtlanticWaterFlow {
-    private static final DIRECTIONS = new int[][]{{0,1}, {1,0}, {0, -1}, {-1, 0}};
+    private static final int[][] DIRECTIONS = new int[][]{{0,1}, {1,0}, {0, -1}, {-1, 0}};
     private int m, n;
     private int[][] heights;
 
@@ -28,7 +28,7 @@ public class PacificAtlanticWaterFlow {
         List<List<Integer>> res = new ArrayList<>();
         for(int i = 0; i < m; i++) {
             for(int j = 0; j < n; j++) {
-                if(pacificReachable[i][j] == true && atlanticReachable[i][j] == true) {
+                if(pacificReachable[i][j] && atlanticReachable[i][j]) {
                     res.add(List.of(i, j));
                 }
             }
@@ -56,11 +56,14 @@ public class PacificAtlanticWaterFlow {
                 continue;
             }
 
-            dfs(newRow, newCol, reachable)
+            dfs(newRow, newCol, reachable);
         }
     }
 
     public static void main(String[] args) {
-        
+        int[][] lands = new int[][]{{1,2,2,3,5},{3,2,3,4,4},{2,4,5,3,1},{6,7,1,4,5},{5,1,1,2,4}};
+
+        PacificAtlanticWaterFlow sol = new PacificAtlanticWaterFlow();
+        System.out.println(sol.pacificAtlantic(lands));
     }
 }
