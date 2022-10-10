@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.LinkedList;
 
 class ListNode {
     int val;
@@ -32,5 +32,13 @@ public class LinkedListUtil {
 
     public static void main(String[] args) {
         LinkedListUtil.generateLinkedList("1, 2 3");
+        // LinkedList<Integer> l = new LinkedList<>();
+
+        ListNode node = null;
+        for(int i = 0; i < 3; i++) {
+            node = new ListNode(i, node);
+        }
+
+        return;
     }
 }
