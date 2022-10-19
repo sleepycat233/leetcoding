@@ -4,6 +4,24 @@ from queue import PriorityQueue
 
 class Solution:
 
+    def mergeKLists3(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        pq = PriorityQueue()
+        if not lists: return None
+
+        for node in lists:
+            if node:
+                pq.put((node.val, id(node), node))
+
+        prev = dummy = ListNode(-1)
+        while not pq.empty():
+            val, _, curr = pq.get()
+            if curr.next:
+                pq.put((curr.next.val, id(curr.next), curr.next))
+            prev.next = curr
+            prev = curr
+
+        return dummy.next
+
     # priority queue
     # we use a wrapper class otherwise we get: TypeError: '<' not supported between instances of 'ListNode' and 'ListNode'
     # another solution would be using triple tuple: pq.put((node.val, id(node), node))
@@ -71,5 +89,5 @@ if __name__ == '__main__':
     l1 = generateLinkedList("1,2,3")
     l2 = generateLinkedList("2,5,6")
     l3 = generateLinkedList("3, 9, 10")
-    res = Solution().mergeKLists2([l1, l2, l3])
+    res = Solution().mergeKLists3([l1, l2, l3])
     res.print()
