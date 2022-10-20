@@ -1,23 +1,12 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+        mapping = {')':'(', ']':'[', '}':'{'}
         stack = []
 
-        def isOpen(c):
-            return c == '(' or c == '[' or c == '{'
-
-        def isMatched(l, r):
-            if l == '(': return r == ')'
-            elif l == '[': return r == ']'
-            elif l == '{': return r == '}'
-
         for c in s:
-            if isOpen(c):
+            if not stack or not c in mapping:
                 stack.append(c)
-            elif stack:
-                l = stack.pop()
-                if not isMatched(l, c):
-                    return False
-            else:
+            elif stack and stack.pop() != mapping[c]:
                 return False
 
-        return len(stack) == 0
+        return not stack
