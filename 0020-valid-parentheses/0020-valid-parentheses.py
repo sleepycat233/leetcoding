@@ -4,9 +4,9 @@ class Solution:
         stack = []
 
         for c in s:
-            if not stack or not c in mapping:
+            if not c in mapping:
                 stack.append(c)
-            elif stack and stack.pop() != mapping[c]:
+            elif not stack or stack.pop() != mapping[c]:
                 return False
 
         return not stack
