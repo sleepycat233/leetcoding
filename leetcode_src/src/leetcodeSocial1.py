@@ -21,9 +21,8 @@ class Solution:
         while x > 0:
             rev *= 10
             rev += x % 10
-            x /= 10
-
-        rev *= 10
+            x //= 10
+            
         return ori == rev
 
     def isValid(self, s:str) -> bool:
@@ -54,9 +53,9 @@ class Solution:
         stack = []
 
         for c in s:
-            if not stack or not c in mapping:
+            if not c in mapping:
                 stack.append(c)
-            elif stack and stack.pop() != mapping[c]:
+            elif not stack or stack.pop() != mapping[c]:
                 return False
 
         return not stack
@@ -64,28 +63,31 @@ class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         d1 = dict()
         res = 0
-        i = 0
+        left = 0
 
-        for j, c in enumerate(s):
+        for right, c in enumerate(s):
             if not c in d1:
-                d1[c] = j
-                res = max(res, j-i+1)
+                d1[c] = right
 
             else:
-                
-                i = d1[c]+1
-                d1[c] = j
+                res = max(res, right-left)
+                i = left
+                left = d1[c]+1
+                for k in range(i, left):
+                    del d1[s[k]]
+                d1[c] = right
 
+        res = max(res, len(s)-left)
         return res
 
 
 if __name__ == '__main__':
     # print(Solution().twoSum([2,7,11,15], 9))
-    # print(Solution().isPalindrome2(121))
+    print(Solution().isPalindrome2(121))
     # print(Solution().isValid2("([(])])"))
     # print(Solution().isValid2("([()])"))
     # print(Solution().isValid2("]"))
 
-    print(Solution().lengthOfLongestSubstring("abcabcbb"))
-    print(Solution().lengthOfLongestSubstring(" "))
-    print(Solution().lengthOfLongestSubstring("tmmzuxt"))
+    # print(Solution().lengthOfLongestSubstring("abcabcbb"))
+    # print(Solution().lengthOfLongestSubstring(" "))
+    # print(Solution().lengthOfLongestSubstring("tmmzuxt"))
