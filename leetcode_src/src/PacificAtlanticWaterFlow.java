@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 public class PacificAtlanticWaterFlow {
-    private static final int[][] DIRECTIONS = new int[][]{{0,1}, {1,0}, {0, -1}, {-1, 0}};
+    private static final int[][] DIRECTIONS = new int[][]{{0,1}, {1,0}, {0,-1}, {-1,0}};
     private int m, n;
     private int[][] heights;
 
