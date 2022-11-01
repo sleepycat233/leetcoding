@@ -2,26 +2,20 @@ class Solution:
     def findBall(self, grid: List[List[int]]) -> List[int]:
         m = len(grid)
         n = len(grid[0])
-        i = j = 0
         res = []
 
-        for s in range(n):
-            i = 0
-            j = s
-            while i >= 0 and i < m and j >= 0 and j < n:
-                adjacent = j + grid[i][j]
-                if adjacent >= 0 and adjacent < n:
-                    if grid[i][j] == grid[i][adjacent]:
-                        j += grid[i][j]
-                        i += 1
-                    else:
-                        break
-                else:
-                    break
+        def findDropColumn(row, col):
+            if row == m:
+                return col
 
-            if i == m:
-                res.append(j)
+            nextCol = col + grid[row][col]
+            if nextCol >= 0 and nextCol < n \
+                    and grid[row][nextCol] == grid[row][col]:
+                return findDropColumn(row+1, nextCol)
             else:
-                res.append(-1)
+                return -1
 
-        return res 
+        for startpos in range(n):
+            res.append(findDropColumn(0, startpos))
+
+        return res
