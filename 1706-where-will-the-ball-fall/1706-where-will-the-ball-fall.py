@@ -2,26 +2,21 @@ class Solution:
     def findBall(self, grid: List[List[int]]) -> List[int]:
         m = len(grid)
         n = len(grid[0])
-        i = j = 0
-        res = []
+        table = [[-1 for _ in range(n)] for _ in range(m+1)]
 
-        for s in range(n):
-            i = 0
-            j = s
-            while i >= 0 and i < m and j >= 0 and j < n:
-                adjacent = j + grid[i][j]
-                if adjacent >= 0 and adjacent < n:
-                    if grid[i][j] == grid[i][adjacent]:
-                        j += grid[i][j]
-                        i += 1
-                    else:
-                        break
+        for row in range(m, -1, -1):
+            for col in range(n):
+                if row == m:
+                    table[row][col] = col
+                    continue
+
+                nextCol = col + grid[row][col]
+                if nextCol >= 0 and nextCol < n and grid[row][col] == grid[row][nextCol]:
+                    table[row][col] = table[row+1][nextCol]
                 else:
-                    break
+                    table[row][col] = -1
 
-            if i == m:
-                res.append(j)
-            else:
-                res.append(-1)
-
-        return res 
+        # for row in table:
+        #     print(row)
+        # print()
+        return table[0]
